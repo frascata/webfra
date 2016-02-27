@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load i18n mezzanine_tags %}
+
+{% block meta_title %}{% trans "Search Results" %}{% endblock %}
+{% block title %}{% trans "Search Results" %}{% endblock %}
+{% block extra_head %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    <li>
+        <a href="{% url "home" %}">{% trans "Home" %}</a>
+    </li>
+    <li class="active">{% trans "Search Results" %}</li>
+{% endblock %}
+
+{% block header-style %}
+    style="background-image:url({{ STATIC_URL }}media/uploads/vivaifrappi/header_background/default.jpg);"
+{% endblock header-style %}
+
+{% block left-panel-wrapper %}{% endblock %}
+{% block right-panel-wrapper %}{% endblock %}
+{% block main-content-size %}12{% endblock %}
+
+{% block main %}
+
+    <p class="lead">
+        {% if results.paginator.count == 0 %}
+            {% trans "Nessun risultato trovato" %}
+{#            {% blocktrans %}#}
+{#                No results were found in {{ search_type }} matching your query: {{ query }}#}
+{#            {% endblocktrans %}#}
+{#        {% else %}#}
+{#            {% blocktrans with start=results.start_index end=results.end_index total=results.paginator.count %}#}
+{#                Showing {{ start }} to {{ end }} of {{ total }} results in {{ search_type }} matching your query:#}
+{#                {{ query }}#}
+{#            {% endblocktrans %}#}
+        {% endif %}
+    </p>
+
+    <div id="search-results">
+        {% for result in results.object_list %}
+            {% with result.get_absolute_url as result_url %}
+                <h5>
+                    {{ forloop.counter0|add:results.start_index }})
+                    {% if result_url %}
+                        <a href="{{ result_url }}">{{ result }}</a>
+                    {% else %}
+                        {{ result }}
+                    {% endif %}
+                </h5>
+                {% if result.description != result|stringformat:"s" %}
+                    <p class="lead">{{ result.description|truncatewords_html:20|safe }}</p>
+                {% endif %}
+                {% if result_url %}
+                    <a href="{{ result_url }}">{% trans "read more" %}</a>
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+
+    {% pagination_for results %}
+
+    <div class="divide50"></div>
+
+{% endblock %}

@@ -1,0 +1,170 @@
+/*-----------------------------------------------------------------------------------*/
+/*	GREEN LAYOUT
+/*-----------------------------------------------------------------------------------*/
+a {
+    color: #006634;
+}
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #a8747e;
+}
+.black-wrapper a:hover {
+    color: #006634
+}
+.btn {
+    color: #006634;
+    border-color: #006634;
+}
+.btn.active,
+.btn:active,
+.btn:hover {
+    background-color: #006634;
+}
+.btn-group.open .btn.dropdown-toggle {
+    color: #006634;
+}
+.btn.inverse {
+    background: #006634
+}
+.btn.inverse:hover {
+    border-color: #006634;
+    color: #006634;
+}
+blockquote small {
+    color: #006634;
+}
+.lite1 {
+    color: #006634;
+    border-bottom-color: #006634;
+}
+.process h4 span {
+    color: #006634
+}
+.icon i.icn {
+    border-color: #006634;
+    color: #006634;
+}
+.step:hover i.icn {
+    background: #006634;
+}
+.menu ul li.active a,
+.menu ul li a:hover,
+.menu ul li a.selected {
+    color: #006634
+}
+.menu ul li ul:before {
+    border-bottom-color: #006634;
+}
+.menu ul li ul li {
+    background: #006634;
+}
+.tp-caption.huge {
+    color: #006634;
+}
+.thumbs .thumb .details h5 a:hover {
+    color: #006634
+}
+.thumbs .thumb .details p {
+    color: #006634;
+}
+.dropdown-menu:before {
+    border-bottom-color: #006634;
+}
+.dropdown-menu li {
+    background: #006634;
+}
+.post .date {
+    border-color: #006634;
+    color: #006634;
+}
+.post a.date:hover {
+    background-color: #006634;
+}
+.posts .format-wrapper {
+    background-color: #006634;
+}
+.post .post-title a:hover {
+    color: #006634
+}
+.post.format-chat ul li strong {
+    color: #006634;
+}
+.sidebox a:hover {
+    color: #006634
+}
+.sidebox .post-list .meta em {
+    color: #006634;
+}
+.border-list li a:hover {
+    color: #006634
+}
+.pagination ul > li > a,
+.pagination ul > li > span {
+    border-color: #006634;
+}
+.pagination ul > li > a:hover,
+.pagination ul > li > a:focus,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+    background-color: #006634;
+}
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+    background-color: #006634;
+}
+.arrow-box.bypostauthor {
+    border-color: #006634
+}
+.arrow-box.bypostauthor:before {
+    border-right-color: #006634;
+}
+#comments .info h2 a:hover {
+    color: #006634
+}
+#comments a.reply-link:hover {
+    color: #006634
+}
+.progress-list li em {
+    color: #006634;
+}
+.progress.plain .bar {
+    background: #006634;
+}
+#testimonials .author {
+    color: #006634;
+}
+.carousel-indicators li {
+    border-color: #006634;
+}
+.carousel-indicators li:hover,
+.carousel-indicators .active {
+    background-color: #006634
+}
+.subfooter a:hover {
+    color: #006634
+}
+#twitter em a:hover {
+    color: #006634
+}
+.fs-entry .caption a {
+    background: #006634;
+}
+.accordion-heading a:hover h5 {
+    color: #006634
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+    color: #006634;
+}
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+    color: #006634;
+}
+.pricing .plan h4 span {
+    color: #006634
+}
+.overlay a .more {
+    background: rgba(0,102,52, 0.92);
+}

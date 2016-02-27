@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags staticfiles pages_tags %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block extra_css %}{{ block.super }}
+    <link rel="stylesheet" href="{% static "mezzanine/css/magnific-popup.css" %}">
+{% endblock extra_css %}
+
+{% block header-style %}
+    style="background-image:url({{ MEDIA_URL }}{% thumbnail page.threesectionspage.header_image 1920 500 %});"
+{% endblock header-style %}
+
+{% block title %}
+    {% editable page.title %}{{ page.title }}{% endeditable %}
+{% endblock %}
+
+
+{% block content-body %}
+    <div class="{{ page.threesectionspage.content_class }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% if page.threesectionspage.content %}
+                        <div class="divide20"></div>
+                        {% editable page.threesectionspage.content %}
+                            {{ page.threesectionspage.content|richtext_filters|safe }}
+                        {% endeditable %}
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if page.threesectionspage.content_gallery %}
+
+                {% include "includes/vivaifrappi_gallery.html" with page_gallery=page.threesectionspage.content_gallery %}
+            {% endif %}
+
+            <div class="divide20"></div>
+        </div>
+    </div>
+
+
+    <div class="{{ page.threesectionspage.second_content_class }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% if page.threesectionspage.second_content %}
+                        <div class="divide20"></div>
+                        {% editable page.threesectionspage.second_content %}
+                            {{ page.threesectionspage.second_content|richtext_filters|safe }}
+                        {% endeditable %}
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if page.threesectionspage.second_content_gallery %}
+                <div class="divide20"></div>
+                {% include "includes/vivaifrappi_gallery.html" with page_gallery=page.threesectionspage.second_content_gallery %}
+            {% endif %}
+
+            <div class="divide20"></div>
+        </div>
+    </div>
+
+    <div class="{{ page.threesectionspage.third_content_class }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% if page.threesectionspage.second_content %}
+                        <div class="divide20"></div>
+                        {% editable page.threesectionspage.third_content %}
+                            {{ page.threesectionspage.third_content|richtext_filters|safe }}
+                        {% endeditable %}
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if page.threesectionspage.third_content_gallery %}
+                <div class="divide20"></div>
+                {% include "includes/vivaifrappi_gallery.html" with page_gallery=page.threesectionspage.third_content_gallery %}
+            {% endif %}
+
+            <div class="divide20"></div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script src="{% static "mezzanine/js/magnific-popup.js" %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.gallery').each(function () {
+                $(this).magnificPopup({
+                    delegate: 'a',
+                    type: 'image',
+                    gallery: {
+                        enabled: true,
+{#                        arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',#}
+                    },
+                    // Delay in milliseconds before popup is removed
+                    removalDelay: 200,
+
+                    // Class that is added to popup wrapper and background
+                    // make it unique to apply your CSS animations just to this exact popup
+                    mainClass: 'mfp-fade'
+                });
+            });
+        });
+    </script>
+{% endblock %}

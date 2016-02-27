@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>
+        {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+    <link rel="shortcut icon" href="{% static "vivaifrappi/img/favicon.ico" %}">
+
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:100italic,100,300italic,300,400italic,400,500italic,500,700italic,700,900italic,900"
+          rel="stylesheet" type="text/css">
+
+    {% ifinstalled mezzanine.blog %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
+
+    {% compress css %}
+        <link rel="stylesheet" href="{% static "vivaifrappi/css/bootstrap.css" %}">
+        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+        <link rel="stylesheet" href="{% static "vivaifrappi/css/bootstrap-theme.css" %}">
+        {% if LANGUAGE_BIDI %}
+            <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+        {% endif %}
+        {% ifinstalled cartridge.shop %}
+            <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+            {% if LANGUAGE_BIDI %}
+                <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+            {% endif %}
+        {% endifinstalled %}
+        {% block extra_css %}
+            <link href="{% static "vivaifrappi/css/bootstrap.min.css" %}" rel="stylesheet">
+            <link href="{% static "vivaifrappi/css/style.min.css" %}" rel="stylesheet">
+            <link href="{% static "vivaifrappi/type/fontello.css" %}" rel="stylesheet">
+            <link href="{% static "vivaifrappi/css/frappi.css" %}" rel="stylesheet">
+            <link href="{% static "vivaifrappi/css/animate.css" %}" rel="stylesheet">
+        {% endblock %}
+    {% endcompress %}
+
+    {% compress js %}
+        <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+        <script src="{% static "vivaifrappi/js/jquery-1.12.0.min.js" %}"></script>
+        <script src="{% static "vivaifrappi/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "js/bootstrap-extras.js" %}"></script>
+        <script src="{% static "vivaifrappi/js/cookies-eu-banner.js" %}"></script>
+        {% block extra_js %} {% endblock %}
+    {% endcompress %}
+
+    <!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+
+<body id="{% block body_id %}body{% endblock %}">
+<div id="cookies-eu-banner" style="display: none;">
+    <div class="container">
+        {% trans "Continuando la vostra visita a questo sito, si accetta l'uso dei cookie da Google Analytics per statistiche." %}
+{#        {% trans "By continuing your visit to this site, you accept the use of cookies by Google Analytics to make visits statistics." %}#}
+        <a href="/cookie-disclaimer" id="cookies-eu-more">{% trans "Leggi" %}</a>
+
+        <div class="pull-right">
+            <button class="btn btn-small btn-default" id="cookies-eu-reject">{% trans "Rifiuto" %}</button>
+            <button class="btn btn-small btn-primary" id="cookies-eu-accept">{% trans "Accetto" %}</button>
+        </div>
+    </div>
+</div>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img class="img-responsive" src="{% static "vivaifrappi/img/logo.jpg" %}"/>
+            </a>
+            {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>{% endif %}
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="social list-unstyled pull-right">
+                <li><a href="https://www.facebook.com/pages/Frappi-Gino-Figli-Vivai/288617147894688?fref=ts"><i
+                        class="icon-s-facebook"></i></a></li>
+                <li><a href="https://plus.google.com/111736918029878587968/about"><i class="icon-s-gplus"></i></a>
+                </li>
+                <li><a href="https://it.pinterest.com/elifraps/"><i class="icon-s-pinterest"></i></a></li>
+            </ul>
+
+            {#            {% search_form %}#}
+            {% page_menu "pages/menus/dropdown.html" %}
+        </div>
+    </div>
+</div>
+
+{% block carousel %}{% endblock %}
+
+{% block header-content %}
+    <div class="header-bg" {% block header-style %}{% endblock header-style %}>
+        <div class="container">
+            <div class="col-md-12 frappi-header">
+                {% nevercache %}
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-hidden="true">&times;</button>
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endnevercache %}
+
+                {% block header-title %}
+                    <h1>{% block title %}{% endblock %}</h1>
+                    {#                    <ul class="breadcrumb">#}
+                    {#                        {% spaceless %}#}
+                    {#                            {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}#}
+                    {#                        {% endspaceless %}#}
+                    {#                    </ul>#}
+                {% endblock header-title %}
+            </div>
+        </div>
+    </div>
+{% endblock header-content %}
+
+{% block content-body %}
+    <div class="default-wrapper">
+        <div class="container">
+            <div class="divide20"></div>
+            <div class="row">
+                {% block left-panel-wrapper %}
+                    <div class="col-md-2 left">
+                        {% block left_panel %}
+                            <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+
+                {% block main-content %}
+                    <div class="col-md-{% block main-content-size %}7{% endblock %} middle">
+                        {% block main %}{% endblock %}
+                    </div>
+                {% endblock %}
+
+                {% block right-panel-wrapper %}
+                    <div class="col-md-{% block right-panel-size %}3{% endblock %}  right">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                {% block right_panel %}
+                                    {% ifinstalled mezzanine.twitter %}
+                                        {% include "twitter/tweets.html" %}
+                                    {% endifinstalled %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<footer>
+    {% page_menu "pages/menus/footer.html" %}
+</footer>
+
+{% include "includes/footer_scripts.html" %}
+
+</body>
+
+</html>

@@ -1,0 +1,751 @@
+body {
+    padding-top: 100px;
+    font-family: 'Roboto', serif;
+}
+
+.header-bg {
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+}
+
+img {
+    box-shadow: none;
+}
+
+.lead {
+    text-align: justify;
+}
+
+.green-text {
+    color: #006634;
+}
+
+.frappi-header {
+    padding-top: 4%;
+    height: 150px;
+}
+
+.frappi-header .breadcrumb {
+    display: inline-block;
+    background-color: #ffffff;
+}
+
+.frappi-header h1 {
+    color: #ffffff;
+}
+
+.frappi-item {
+    margin-left: 2%;
+    margin-rigth: 2%;
+}
+
+.default-wrapper {
+    background: #fdfdfd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/*
+* Gallery items
+*/
+.gallery .thumbnail {
+    margin: 0;
+    padding: 0px;
+}
+
+.gallery-item {
+    border: 1px solid #EEEEEE;
+    margin-bottom: 8%;
+}
+
+.gallery-item > .gallery-img-description {
+    padding: 10px 5px 5px 5px;
+}
+
+.gallery-item:hover {
+    opacity: 0.6;
+    cursor: pointer;
+    background-image: url("../img/logo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	CAROUSEL
+/*-----------------------------------------------------------------------------------*/
+.carousel-indicators li {
+    border-color: #eee;
+}
+
+.carousel-indicators li:hover,
+.carousel-indicators .active {
+    background-color: #eee
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	NAVBAR
+/*-----------------------------------------------------------------------------------*/
+.navbar {
+    background: #ffffff;
+    min-height: 100px;
+    margin: 0;
+    z-index: 999;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a,
+.navbar .navbar-nav {
+    background: none;
+    box-shadow: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.navbar .nav.navbar-nav > li {
+    max-height: 98px;
+}
+
+.navbar .nav.navbar-nav > li a {
+    max-height: 96px;
+}
+
+.navbar .nav.navbar-nav li, .navbar .nav li a, .navbar .nav li ul.dropdown-menu {
+    text-transform: uppercase;
+    color: #006634;
+    background-color: white;
+}
+
+.navbar .nav.navbar-nav li.dropdown.open:hover,
+.navbar .nav.navbar-nav li.dropdown.open:focus,
+.navbar .nav.navbar-nav li.dropdown.open:visited {
+    background-color: white;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar .nav ul.dropdown-menu li a {
+    font-weight: normal;
+}
+
+.navbar .nav.navbar-nav li.active {
+    border-top: 6px solid #006634;
+}
+
+.navbar .nav.navbar-nav li:not(.active) {
+    margin-top: 6px;
+}
+
+.navbar .nav.navbar-nav > li:hover,
+.navbar .nav.navbar-nav > li:visited,
+.navbar .nav.navbar-nav > li:focus {
+    background-color: white;
+    border-top: 6px solid rgba(0, 102, 52, 0.5);
+    margin-top: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar .nav.navbar-nav > form {
+    margin-top: 7px;
+}
+
+.navbar .nav.navbar-nav > li a:hover,
+.navbar .nav.navbar-nav > li a:visited,
+.navbar .nav.navbar-nav > li a:focus {
+    background-color: white;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar .nav.navbar-nav .active > a {
+    font-weight: bold;
+    color: #006634;
+    background: none;
+    box-shadow: none;
+}
+
+.navbar .nav.navbar-nav li a:hover {
+    background: none;
+    box-shadow: none;
+    color: rgba(0, 102, 52, 0.5);
+}
+
+.dropdown-menu:before {
+    border-bottom: none;
+}
+
+.dropdown-menu li {
+    background: #eee;
+    color: #006634;
+}
+
+.dropdown-menu li a {
+    padding: 13px;
+    line-height: 1;
+    color: #006634;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a.active {
+    padding: 13px;
+    filter: none;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 900;
+    background: rgba(0, 102, 52, 0.92);
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #006634;
+    outline: 0;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.navbar .nav.pull-right {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.navbar .brand img {
+    /*margin-top: 10px;*/
+    height: 90px;
+    padding: 10px 10px 10px 10px;
+}
+
+.navbar .brand {
+    padding: 0;
+    margin-left: 0;
+    /*margin-right: 10%;*/
+    margin-right: 0;
+}
+
+.social li a i {
+    width: 25px;
+    height: 25px;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+}
+
+.navbar-toggle {
+    color: #fff;
+    /* background-color: #006634; */
+}
+
+.navbar-toggle.collapsed {
+    color: #006634;
+    background-color: #fff;
+    border: 1px solid #006634;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-toggle.collapsed .icon-bar {
+    background-color: #006634;
+}
+
+/* Nursery */
+.nursery-sel {
+    width: 100%;
+}
+
+.no-border {
+    border-bottom: none;
+}
+
+/* Overlay */
+.overlay a .more {
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 20px 10px 10px 10px;
+    vertical-align: middle;
+    display: none;
+    height: 100%;
+    position: absolute;
+    text-decoration: none;
+    width: 100%;
+    z-index: 100;
+    background: #222;
+    background: rgba(0, 102, 52, 0.92);
+}
+
+.overlay a .more:before {
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    position: absolute;
+    text-align: center;
+    line-height: 18px;
+    width: 46px;
+    height: 46px;
+    -webkit-border-radius: 46px;
+    border-radius: 46px;
+    font-size: 18px;
+    padding-top: 12px;
+    top: 50%;
+    left: 50%;
+    border: 2px solid #fff;
+    margin: -23px 0 0 -23px;
+}
+
+/* footer */
+footer {
+    padding: 0;
+}
+
+.frappi-footer {
+    padding-top: 1%;
+}
+
+.frappi-footer ul > li {
+    float: none;
+}
+
+.frappi-footer img {
+    margin-bottom: 2%;
+}
+
+.frappi-footer .pull-right {
+    text-align: right;
+}
+
+.project-post {
+    padding-bottom: 0;
+}
+
+.project-post-content {
+    padding-bottom: 60px;
+}
+
+.social li {
+    display: block;
+    padding: 4px 0 2px 10px;
+}
+
+.social-item {
+    margin: 0 5px 0 5px;
+}
+
+.footer-img img {
+    max-height: 100px;
+}
+
+.meta span.info {
+    color: #006634;
+}
+
+.frappi-blockquote {
+    padding: 20px 0px 20px 0px;
+}
+
+.frappi-section {
+    margin-bottom: 50px;
+}
+
+.post {
+    padding-bottom: 0;
+}
+
+.post .date.active,
+.post .date:hover {
+    color: white;
+    border-color: white;
+    background-color: #006634;
+}
+
+ul.lead li {
+    padding-bottom: 10px;
+}
+
+.map {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.frappi-contacts-form .form-group input {
+    margin-bottom: 0px;
+}
+
+.min-h-content {
+    min-height: 300px;
+}
+
+/*
+* News
+*/
+.panel-frappi-news {
+    border-color: #ddd;
+}
+
+.panel-frappi-news > .panel-heading {
+    color: #3c763d;
+    /*background-color: white;*/
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.alert-news {
+    background: url(../img/bg/paper.png);
+    -webkit-box-shadow: -5px 8px 12px -4px #333333;
+    -moz-box-shadow: -5px 8px 12px -4px #333333;
+    box-shadow: -5px 8px 12px -4px #333333;
+}
+
+.alert-news .alert-title img {
+    height: 50px;
+}
+
+.alert-news .alert-title h3 {
+    display: inline-block;
+    padding: 5px;
+}
+
+.alert-news .alert-body {
+    color: #000000;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.pin-image {
+    height: 50px;
+}
+
+/* Servizi images */
+.process .step:before {
+    margin-top: 60px;
+}
+
+.step a {
+    text-decoration: none;
+    display: block;
+    margin: 0 3px 3px 0;
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1, 1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;
+}
+
+.step a:hover {
+    opacity: .7;
+    -webkit-transform: scale(1.05, 1.07);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1.05, 1.07);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;
+    position: relative;
+    z-index: 99;
+}
+
+/* bootstrap hacks */
+.close {
+    opacity: 0.9;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    background-image: none;
+}
+
+.navbar-fixed-top {
+    min-height: 100px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 100px;
+}
+
+.navbar-form {
+    padding-top: 15px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    margin: 0;
+    line-height: 80px;
+}
+
+.navbar-form button.btn {
+    margin-bottom: 15px;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #3c763d;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    color: #fff;
+    background-color: #3c763d;
+    border-color: #3c763d;
+}
+
+.blog-list-detail {
+    border-bottom: none;
+}
+
+.gallery .thumbnail {
+    box-shadow: none;
+    border: none;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	RESPONSIVE
+/*-----------------------------------------------------------------------------------*/
+
+/*desktop*/
+@media (min-width: 1200px) {
+    .navbar-form {
+        margin-left: 10px;
+    }
+
+    ul.social {
+        margin-left: 10%;
+    }
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+    .navbar-header {
+        width: 10%;
+    }
+
+    .header-bg {
+        max-height: 400px;
+    }
+
+    .navbar .brand img {
+        height: 70px;
+    }
+
+    ul.social {
+        margin-left: 2%;
+    }
+}
+
+/*tablet*/
+@media (min-width: 768px) and (max-width: 979px) {
+    .navbar-header {
+        width: 10%;
+    }
+
+    .header-bg {
+        max-height: 300px;
+    }
+
+    .navbar .brand img {
+        height: 60px;
+    }
+
+    .navbar-form {
+        margin-left: 5px;
+    }
+
+    .nav > li > a {
+        padding: 5px 10px;
+    }
+
+    ul.social {
+        margin-left: 0;
+    }
+
+    .overlay a .more {
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
+
+/*smartphone*/
+@media (max-width: 767px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .header-bg {
+        max-height: 200px;
+    }
+
+    .navbar-fixed-top {
+        min-height: 60px;
+    }
+
+    .navbar-nav > li > a {
+        line-height: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .navbar-brand img {
+        margin-top: 0px;
+        height: 32px;
+    }
+
+    .navbar-form {
+        padding-left: 10px;
+        padding-top: 10px;
+        line-height: 20px;
+    }
+
+    .navbar-form.navbar-right .form-group {
+        width: 70%;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .navbar-form.navbar-right button.btn {
+        margin-bottom: 16px;
+    }
+
+    /*NEW*/
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+
+    /*---*/
+    li.dropdown.open > ul.dropdown-menu {
+        display: none;
+    }
+
+    ul.social {
+        display: none;
+    }
+
+    .overlay a .more {
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+}
+
+/*
+Magnific Popup animation
+*/
+/* overlay at start */
+.mfp-fade.mfp-bg {
+    opacity: 0;
+
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    opacity: 1;
+}
+
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    opacity: 0;
+}
+
+.form-group > input[type="text"]:focus, .form-group > input[type="password"]:focus, .form-group > input[type="datetime"]:focus, .form-group > input[type="datetime-local"]:focus, .form-group > input[type="date"]:focus, .form-group > input[type="month"]:focus, .form-group > input[type="time"]:focus, .form-group > input[type="week"]:focus, .form-group > input[type="number"]:focus, .form-group > input[type="email"]:focus, .form-group > input[type="url"]:focus, .form-group > input[type="search"]:focus, .form-group > input[type="tel"]:focus, .form-group > input[type="color"]:focus, .form-group > select:focus, .form-group > textarea:focus,
+.form-group input:focus {
+    border-color: #3c763d;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(60, 118, 61, 0.6);
+}
+
+.card {
+    border: 1px solid #EEEEEE;
+}
+
+.card-header {
+    padding: 10px;
+}
+
+.cookie-disclaimer {
+    display: block;
+    position: fixed;
+    z-index: 999;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    bottom: 0;
+    right: 0;
+}
+
+#cookies-eu-banner {
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #222;
+    color: white;
+    padding-top: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    z-index: 1000;
+}

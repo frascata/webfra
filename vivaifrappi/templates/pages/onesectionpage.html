@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags staticfiles pages_tags %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block extra_css %}{{ block.super }}
+    <link rel="stylesheet" href="{% static "mezzanine/css/magnific-popup.css" %}">
+{% endblock extra_css %}
+
+{% block header-style %}
+    style="background-image:url({{ MEDIA_URL }}{% thumbnail page.onesectionpage.header_image 1920 500 %});"
+{% endblock header-style %}
+
+{% block title %}
+    {% editable page.title %}{{ page.title }}{% endeditable %}
+{% endblock %}
+
+
+{% block content-body %}
+    <div class="{{ page.onesectionpage.content_class }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 middle">
+                    <div class="divide20"></div>
+                    {% editable page.onesectionpage.content %}
+                        {{ page.onesectionpage.content|richtext_filters|safe }}
+                    {% endeditable %}
+                </div>
+            </div>
+
+            {% if page.onesectionpage.extra_gallery %}
+                <div class="divide20"></div>
+                {% include "includes/vivaifrappi_gallery.html" with page_gallery=page.onesectionpage.extra_gallery %}
+            {% endif %}
+
+            {% if page.onesectionpage.extra_template %}
+                {% include page.onesectionpage.extra_template %}
+            {% endif %}
+
+            <div class="divide20"></div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script src="{% static "mezzanine/js/magnific-popup.js" %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    </script>
+{% endblock %}

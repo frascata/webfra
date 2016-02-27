@@ -1,0 +1,134 @@
+{% extends "blog/blog_post_list.html" %}
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n future disqus_tags %}
+
+{% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for blog_post as tags %}
+    {% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ blog_post.description }}
+{% endmetablock %}{% endblock %}
+
+{% block title %}
+    {% editable blog_post.title %}{{ blog_post.title }}{% endeditable %}
+{% endblock %}
+
+{% block breadcrumb_menu %}
+    {{ block.super }}
+    <li class="active">{{ blog_post.title }}</li>
+{% endblock %}
+
+{% block main %}
+
+    <div class="content">
+        <div class="posts">
+            <div class="post format-image project-post">
+                <div class="date-wrapper">
+                    <div class="date">
+                            <span class="day">
+                                {{ blog_post.publish_date.day }}
+                            </span>
+                            <span class="month">
+                            {{ blog_post.publish_date|date:"M" }}
+                            </span>
+                    </div>
+                </div>
+                <div class="format-wrapper">
+                    <i class="icon-chat-empty"></i>
+                </div>
+                <div class="post-content">
+                    <div class="panel panel-frappi-news">
+                        <div class="panel-body">
+                            {% block blog_post_detail_postedby %}
+                                {% editable blog_post.publish_date %}
+                                    <h6 class="post-meta">
+                                        {% trans "Pubblicato" %}:
+                                        {% blocktrans with sometime=blog_post.publish_date|timesince %}
+                                            {{ sometime }} fa
+                                        {% endblocktrans %}
+                                    </h6>
+                                {% endeditable %}
+                            {% endblock %}
+
+                            {% block blog_post_detail_featured_image %}
+                                {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+                                    <p><img class="img-responsive"
+                                            src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 600 0 %}"></p>
+                                {% endif %}
+                            {% endblock %}
+
+                            {% if settings.COMMENTS_DISQUS_SHORTNAME %}
+                                {% include "generic/includes/disqus_counts.html" %}
+                            {% endif %}
+
+                            <div class="divide20"></div>
+
+                            {% block blog_post_detail_content %}
+                                {% editable blog_post.content %}
+                                    {{ blog_post.content|richtext_filters|safe }}
+                                {% endeditable %}
+                            {% endblock %}
+
+                            <div class="divide20"></div>
+
+                            {% block blog_post_detail_keywords %}
+                                {% keywords_for blog_post as tags %}
+                                {% if tags %}
+                                    {% spaceless %}
+                                        <ul class="list-inline tags">
+                                            <li>{% trans "Tags" %}:</li>
+                                            {% for tag in tags %}
+                                                <li><a href="{% url "blog_post_list_tag" tag.slug %}">{{ tag }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endspaceless %}
+                                {% endif %}
+                            {% endblock %}
+
+                            {% block blog_post_detail_rating %} {% endblock %}
+
+
+                            {% block blog_post_detail_sharebuttons %}
+                                <div class="pull-right">
+                                {% set_short_url_for blog_post %}
+
+                                <a class="btn btn-sm share-facebook" target="_blank"
+                                   href="http://facebook.com/sharer.php?u={{ request.build_absolute_uri }}&amp;t={{ blog_post.title|urlencode }}">
+
+                                    <i class="icon-facebook"></i> | {% trans "Share on Facebook" %}
+                                </a>
+                                </div>
+                            {% endblock %}
+
+                            {% block blog_post_previous_next %}
+                                <ul class="pager">
+                                    {% with blog_post.get_previous_by_publish_date as previous %}
+                                        {% if previous %}
+                                            <li class="previous">
+                                                <a href="{{ previous.get_absolute_url }}">&larr; {{ previous }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endwith %}
+                                    {% with blog_post.get_next_by_publish_date as next %}
+                                        {% if next %}
+                                            <li class="next">
+                                                <a href="{{ next.get_absolute_url }}">{{ next }} &rarr;</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endwith %}
+                                </ul>
+                            {% endblock %}
+
+                            {% block blog_post_detail_related_posts %}{% endblock %}
+
+                            {% block blog_post_detail_comments %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

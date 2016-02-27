@@ -1,0 +1,29 @@
+{% load mezzanine_tags %}
+
+<div class="row" id={{ page_gallery_id }}>
+    <div class="col-md-12">
+
+        {% editable page_gallery.content %}
+            {{ page_gallery.content|richtext_filters|safe }}
+        {% endeditable %}
+
+        <div class="gallery row">
+            {% for image in page_gallery.images.all %}
+
+                <div class="col-xs-4 col-sm-3">
+                    <div class="gallery-item">
+                        <a class="thumbnail" rel="#image-{{ image.id }}" title="{{ image.description }}"
+                           href="{{ image.file.url }}">
+                            <img class="img-responsive"
+                                 src="{{ MEDIA_URL }}{% thumbnail image.file 300 200 0 0 %}">
+                        </a>
+
+{#                        <div class="gallery-img-description">#}
+{#                            {{ image.description }}#}
+{#                        </div>#}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

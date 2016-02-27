@@ -1,0 +1,106 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags keyword_tags i18n staticfiles %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    <script>
+        $(function () {
+            $('.mezzanine-form :input:visible:enabled:first').focus();
+        });
+    </script>
+{% endblock %}
+
+{% block header-style %}
+    style="background-image:url('{{ STATIC_URL }}media/uploads/vivaifrappi/header_background/contatti.jpg');"
+{% endblock header-style %}
+
+{% block main %}
+
+    <div class="default-wrapper">
+        <div class="container">
+
+            <div class="col-sm-6">
+                <div class="divide20"></div>
+
+                <div class="frappi-contacts-form">
+                    {{ block.super }}
+                    {% if request.GET.sent %}
+                        {% editable page.form.response %}
+                            {{ page.form.response|richtext_filters|safe }}
+                        {% endeditable %}
+                    {% else %}
+                        {% with page.form as page_form %}
+                            {% editable page_form.content %}
+                                {{ page_form.content|richtext_filters|safe }}
+                            {% endeditable %}
+                        {% endwith %}
+
+                        {% errors_for form %}
+
+                        <form class="mezzanine-form" method="post"{% if form.is_multipart %}
+                              enctype="multipart/form-data"{% endif %}>
+                            {% fields_for form %}
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-4">
+                                    <input class="btn btn-primary" type="submit" value="{{ page.form.button_text }}">
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="divide20"></div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="{% static "vivaifrappi/img/frappi_logo.jpg" %}"
+                                     class="img-thumbnail img-circle"
+                                     height="100px">
+                            </div>
+                            <div class="col-xs-8">
+                                <h4>
+                                    Az. Agr. Vivai Piante Frappi Gino & Figli S.S Società Agricola
+                                </h4>
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <i class="glyphicon glyphicon-tree-conifer"></i> Loc. Montecchio Vesponi
+                                        249/c<br>
+                                        52043 CASTIGLION FIORENTINO (AR)<br>
+                                        <i class="glyphicon glyphicon-euro"></i> P.I. 01265950517<br>
+                                        <i class="glyphicon glyphicon-earphone"></i> Tel. 0575 651102
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divide20"></div>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11609.615133847217!2d11.919221999999996!3d43.326738999999826!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132bf0710c67d667%3A0xf6e6c109860a0ebc!2sVivai+Piante+Frappi+Gino+Figli!5e0!3m2!1sit!2sit!4v1405872307194"
+                            width="100%" height="500" frameborder="0" style="border:0"></iframe>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="divide20"></div>
+    </div>
+{% endblock %}

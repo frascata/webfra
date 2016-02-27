@@ -1,0 +1,60 @@
+{% load i18n static staticfiles mezzanine_tags %}
+
+
+<div class="row">
+    <div class="col-md-12" id="project-list" aria-multiselectable="true">
+        {% for p in projects %}
+            <div class="posts" id="{{ p.nickname|lower }}-post">
+                <div class="post format-image project-post">
+                    <div class="date-wrapper">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#project-list"
+                           href="#{{ p.nickname|lower }}-accordion">
+                            <div class="date {% if forloop.counter == 1 %}active{% endif %}">
+                                <span class="day">{{ p.nickname|upper }}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <h2 class="post-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#project-list"
+                               href="#{{ p.nickname|lower }}-accordion">{{ p.name }}
+                            </a>
+                        </h2>
+
+                        <div class="meta">
+                            {% trans "Anno" %}: <span class="info">'{{ p.date|date:'y' }}</span>
+                            <span class="sep">|</span>
+                            {% trans "Progettisti" %}: <span class="info">{{ p.members }}</span>
+                            <span class="sep">|</span>
+                            Loc: <span class="info">{{ p.location }}</span>
+                        </div>
+
+                        <div id="{{ p.nickname|lower }}-accordion" class="project-accordion collapse {% if forloop.counter == 1 %}in{% endif %}">
+
+                            <div class="project-post-content" id="{{ p.nickname|lower }}-content">
+
+                                {% include "includes/vivaifrappi_gallery.html" with page_gallery=p.gallery %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    /* Load Project into accordion*/
+    $(document).on('show.bs.collapse', '.collapse.project-accordion', function (event) {
+        event.stopPropagation();
+
+        $('.project-accordion.in').collapse('hide');
+
+        var id = $(this).attr('id').split('-')[0];
+        var $project = $('#' + id + '-post .post .date');
+
+        $('.posts .post .date').removeClass('active');
+        $project.addClass('active');
+    });
+</script>
