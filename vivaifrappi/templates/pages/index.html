@@ -1,15 +1,6 @@
 {% extends "pages/richtextpage.html" %}
 {% load mezzanine_tags i18n blog_tags keyword_tags staticfiles %}
 
-{#{% block main %}#}
-{#<!--#}
-{#This template is provided as a custom template for the homepage, for#}
-{#when it is configured as an editable page in the navigation tree. Feel#}
-{#free to modify it.#}
-{#-->#}
-{#{{ block.super }}#}
-{#{% endblock %} #}
-
 {% block header-content %}{% endblock %}
 
 {% block carousel %}
@@ -17,6 +8,9 @@
         <div id="carousel-frappi" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
+                {#                <li data-target="#carousel-frappi"#}
+                {#                    data-slide-to="video-frappi"#}
+                {#                    class="active"></li>#}
                 {% for slide in page.homepage.slides.all %}
                     <li data-target="#carousel-frappi"
                         data-slide-to="{{ forloop.counter0 }}"
@@ -26,9 +20,20 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
+                {#                <div class="item active">#}
+                {#                    <div style="text-align: center;">#}
+                {#                        <iframe width="800" height="600"#}
+                {#                                src="https://www.youtube.com/embed/hz0DchkLqm8?autoplay=1&loop=1&controls=0"></iframe>#}
+                {#                        <video autoplay loop controls height="600">#}
+                {#                            <source src="{% static "vivaifrappi/intro_video.mp4" %}"#}
+                {#                                    type="video/mp4" />#}
+                {#                            Your browser does not support the video tag.#}
+                {#                        </video>#}
+                {#                    </div>#}
+                {#                </div>#}
                 {% for slide in page.homepage.slides.all %}
                     <div class="item{% if forloop.first %} active{% endif %}">
-                        <img src="{{ MEDIA_URL }}{% thumbnail slide.image 1920 500 %}">
+                        <img src="{{ MEDIA_URL }}{% thumbnail slide.image 1920 650 %}">
                     </div>
                 {% endfor %}
             </div>
@@ -86,11 +91,22 @@
                             {{ page.homepage.main_content }}
                         </p>
                     {% endeditable %}
+                    <div class="divide20"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <video autoplay loop controls>
+                                <source src="{% static "vivaifrappi/intro_video.mp4" %}"
+                                        type="video/mp4"/>
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
                     <div class="divide50"></div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="light-wrapper">
         <div class="container">
@@ -145,39 +161,55 @@
         </div>
     </div>
     <style>
-        .step {opacity: 0;}
+        .step {
+            opacity: 0;
+        }
+
+        #carousel-frappi {
+            background-color: #000;
+        }
+
+        video {
+            width: 100%
+        }
+
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > video {
+            margin: 0 auto;
+        }
     </style>
     <script>
         $(document).ready(function () {
+
             function firstAnimation() {
                 $('.step:eq(0)').delay(500).animate({
-                            opacity: 1
-                        }, 'medium');
+                    opacity: 1
+                }, 'medium');
 
                 $('.step:eq(1)').delay(1000).animate({
-                            opacity: 1
-                        }, 'medium');
+                    opacity: 1
+                }, 'medium');
 
                 $('.step:eq(2)').delay(1500).animate({
-                            opacity: 1
-                        }, 'medium');
+                    opacity: 1
+                }, 'medium');
 
                 $('.step:eq(3)').delay(2000).animate({
-                            opacity: 1
-                        }, 'medium');
+                    opacity: 1
+                }, 'medium');
             }
 
             $(window).scroll(function () {
                 if ($(window).width() <= 549) {
-                    if ($(window).scrollTop() > 1100) {
+                    if ($(window).scrollTop() > 1800) {
                         firstAnimation();
                     }
                 } else if ($(window).width() > 549 && $(window).width() <= 991) {
-                    if ($(window).scrollTop() > 500) {
+                    if ($(window).scrollTop() > 1200) {
                         firstAnimation();
                     }
                 } else {
-                    if ($(window).scrollTop() > 200) {
+                    if ($(window).scrollTop() > 900) {
                         firstAnimation();
                     }
                 }
