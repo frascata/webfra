@@ -63,14 +63,9 @@
 <body id="{% block body_id %}body{% endblock %}">
 <div id="cookies-eu-banner" style="display: none;">
     <div class="container">
-        {% trans "Continuando la vostra visita a questo sito, si accetta l'uso dei cookie da Google Analytics per statistiche." %}
+        {% trans "Continuando a navigare, accetti l'uso dei cookie per migliorare e personalizzare la tua esperienza." %}
 {#        {% trans "By continuing your visit to this site, you accept the use of cookies by Google Analytics to make visits statistics." %}#}
-        <a href="/cookie-disclaimer" id="cookies-eu-more">{% trans "Leggi" %}</a>
-
-        <div class="pull-right">
-            <button class="btn btn-small btn-default" id="cookies-eu-reject">{% trans "Rifiuto" %}</button>
-            <button class="btn btn-small btn-primary" id="cookies-eu-accept">{% trans "Accetto" %}</button>
-        </div>
+        <a href="/cookie-disclaimer" id="cookies-eu-more">{% trans "Per saperne di più." %}</a>
     </div>
 </div>
 
