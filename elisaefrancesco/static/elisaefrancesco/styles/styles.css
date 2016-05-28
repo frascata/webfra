@@ -1,0 +1,651 @@
+body::before {
+    background-size: cover;
+    background-attachment: fixed;
+    content: '';
+    will-change: transform;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: fixed;
+    opacity: 0.5;
+}
+
+@media (max-width: 512px)  and (-webkit-min-device-pixel-ratio: 1.5),
+(max-width: 512px)  and (min-resolution: 1.5dppx),
+(max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1.5),
+(max-width: 1024px) and (max-resolution: 1.5dppx) {
+    body::before {
+        /*background-image: url('../images/bg_1024.jpg');*/
+        background-image: url('../images/bg_castiglioni.jpg');
+        /*background-image: url('../images/bg_sunset.jpg');*/
+    }
+}
+
+@media (min-width: 513px)  and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5),
+(min-width: 513px)  and (max-width: 1024px) and (min-resolution: 1.5dppx),
+(min-width: 1025px) and (max-width: 2048px) and (-webkit-max-device-pixel-ratio: 1.5),
+(min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx) {
+    body::before {
+        /*background-image: url('../images/bg_2048.jpg');*/
+        background-image: url('../images/bg_castiglioni.jpg');
+        /*background-image: url('../images/bg_sunset.jpg');*/
+    }
+}
+
+@media (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 1.5),
+(min-width: 1025px) and (min-resolution: 1.5dppx),
+(min-width: 2049px) and (-webkit-max-device-pixel-ratio: 1.5),
+(min-width: 2049px) and (max-resolution: 1.5dppx) {
+    body::before {
+        /*background-image: url('../images/bg_2880.jpg');*/
+        background-image: url('../images/bg_castiglioni.jpg');
+        /*background-image: url('../images/bg_sunset.jpg');*/
+    }
+}
+
+body .wedding-app {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+.wedding-app .wedding-app__posts {
+    max-width: 900px;
+    padding: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.wedding-app.mdl-layout .mdl-layout__content {
+    padding-top: 230px;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wedding-app .mdl-card {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    min-height: 360px;
+}
+
+.wedding-app .mdl-card__title {
+    padding: 16px;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.wedding-app .mdl-card__media {
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 24px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.wedding-app .mdl-card__media a,
+.wedding-app .mdl-card__title a {
+    color: inherit;
+}
+
+.wedding-app .mdl-card__supporting-text {
+    width: 100%;
+    padding: 16px;
+    min-height: 64px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.wedding-app .mdl-card__supporting-text strong {
+    font-weight: 400;
+}
+
+.wedding-app .mdl-card__media ~ .mdl-card__supporting-text {
+    min-height: 64px;
+}
+
+.wedding-app .mdl-card__supporting-text:not(:last-child) {
+    box-sizing: border-box;
+    min-height: 76px;
+}
+
+.wedding-app:not(.wedding-app--blogpost) .mdl-card__supporting-text ~ .mdl-card__supporting-text {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wedding-app .mdl-card__actions:first-child {
+    margin-left: 0;
+}
+
+.wedding-app .meta {
+    box-sizing: border-box;
+    padding: 16px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    height: auto;
+}
+
+.wedding-app .meta > .meta__favorites {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin: 0 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.wedding-app .meta > .meta__favorites .material-icons {
+    font-size: 2em;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.wedding-app .mdl-card .meta.meta--fill {
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.wedding-app .meta > *:first-child {
+    margin-right: 16px;
+}
+
+.wedding-app .meta > * {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.wedding-app.is-small-screen .wedding-app__posts > .mdl-card.coffee-pic {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+}
+
+.wedding-app.is-small-screen .wedding-app__posts > .mdl-card.something-else {
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    /*order: -1;*/
+}
+
+.wedding-app .coffee-pic .mdl-card__media {
+    background-image: url('../images/coffee.jpg');
+}
+
+.wedding-app .something-else .mdl-card__media {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.wedding-app .something-else > button {
+    position: absolute;
+    top: 0;
+    right: 28px;
+    -webkit-transform: translate(0px, -28px);
+    transform: translate(0px, -28px);
+}
+
+.wedding-app .something-else .mdl-card__media {
+    font-size: 13px;
+    font-weight: 500;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.wedding-app .something-else .mdl-card__media img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+}
+
+.wedding-app .something-else .mdl-card__supporting-text {
+    background-color: white;
+    font-size: 18px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.mdl-card.santamaria-card {
+
+}
+
+.wedding-app .mdl-card > button {
+    position: absolute;
+    /*top: 300px;*/
+    bottom: 20px;
+    right: 28px;
+    -webkit-transform: translate(0px, -28px);
+    transform: translate(0px, -28px);
+    z-index: 1;
+}
+
+.wedding-app .santamaria-card .mdl-card__media {
+    background-image: url('../images/bg_santamaria.jpg');
+    height: 300px;
+}
+
+.wedding-app .cerimonia-card .mdl-card__media {
+    background-image: url('../images/bg_chiesa.jpg');
+    background-position: 0 0;
+    height: 300px;
+}
+
+.wedding-app .hotel-card .mdl-card__media {
+    background-image: url('../images/bg_hotel.jpg');
+    height: 300px;
+}
+
+.wedding-app .hotel-card .mdl-card__media {
+    background-image: url('../images/bg_hotel.jpg');
+    height: 300px;
+}
+
+.wedding-app .viaggio-card .mdl-card__media {
+    background-image: url('../images/bg_viaggio.jpg');
+    height: 300px;
+}
+
+@media (max-width: 512px)  and (-webkit-min-device-pixel-ratio: 1.5),
+(max-width: 512px)  and (min-resolution: 1.5dppx),
+(max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1.5),
+(max-width: 1024px) and (max-resolution: 1.5dppx) {
+    .wedding-app .mdl-card__media {
+        height: 200px;
+    }
+}
+
+.wedding-app .shopping .mdl-card__media {
+    background-image: url('../images/shopping.jpg');
+}
+
+.wedding-app .wedding-app__posts > .demo-nav {
+    margin: 12px 15px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+}
+
+.wedding-app .wedding-app__posts > .demo-nav > .demo-nav__button {
+    color: white;
+    text-decoration: none;
+}
+
+.wedding-app .wedding-app__posts > .demo-nav .mdl-button {
+    color: rgba(0, 0, 0, 0.54);
+    background-color: white;
+}
+
+.wedding-app .wedding-app__posts > .demo-nav > .demo-nav__button:first-child .mdl-button {
+    margin-right: 16px;
+}
+
+.wedding-app .wedding-app__posts > .demo-nav > .demo-nav__button:last-child .mdl-button {
+    margin-left: 16px;
+}
+
+.wedding-app .mdl-card > a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+}
+
+.wedding-app .mdl-card h3 {
+    margin: 0;
+}
+
+.wedding-app .mdl-card h3 a {
+    text-decoration: none;
+}
+
+.wedding-app .mdl-card h3.quote:before, .wedding-app .mdl-card h3.quote:after {
+    display: block;
+    font-size: 3em;
+    margin-top: 0.5em;
+}
+
+.wedding-app .mdl-card h3.quote:before {
+    content: '“';
+}
+
+.wedding-app .mdl-card h3.quote:after {
+    content: '”';
+}
+
+.wedding-app--blogpost .custom-header {
+    background-color: transparent;
+}
+
+.wedding-app--blogpost .wedding-app__posts > .mdl-card .mdl-card__media {
+    background-image: url('../images/road_big.jpg');
+    height: 280px;
+}
+
+.wedding-app--blogpost .comments {
+    background-color: #EEE;
+}
+
+.wedding-app--blogpost .meta > * {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+}
+
+.wedding-app--blogpost .meta + .mdl-card__supporting-text {
+    border: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.wedding-app--blogpost .meta + .mdl-card__supporting-text p {
+    max-width: 512px;
+    margin: 16px auto;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.wedding-app--blogpost .comments {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.wedding-app--blogpost .comments > form {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.wedding-app--blogpost .comments > form .mdl-textfield {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-right: 16px;
+    color: rgb(97, 97, 97);
+}
+
+/* Workaround for Firefox.
+ * User agent stylesheet kept overwriting the font in FF only.
+ */
+.wedding-app--blogpost .comments > form .mdl-textfield .mdl-textfield__input {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+.wedding-app--blogpost .comments > form .mdl-textfield input,
+.wedding-app--blogpost .comments > form .mdl-textfield textarea {
+    resize: none;
+}
+
+.wedding-app--blogpost .comments > form button {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.24);
+    color: white;
+}
+
+.wedding-app--blogpost .comments .comment {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.wedding-app--blogpost .comments .comment > .comment__header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.wedding-app--blogpost .comments .comment > .comment__header > .comment__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin-right: 16px;
+}
+
+.wedding-app--blogpost .comments .comment > .comment__header > .comment__author {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.wedding-app--blogpost .comments .comment > .comment__text {
+    line-height: 1.5em;
+}
+
+.wedding-app--blogpost .comments .comment > .comment__actions {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 0.8em;
+    margin-top: 16px;
+}
+
+.wedding-app--blogpost .comments .comment > .comment__actions button {
+    margin-right: 16px;
+    color: rgba(0, 0, 0, 0.24);
+}
+
+.wedding-app--blogpost .comments .comment > .comment__answers {
+    padding-top: 32px;
+    padding-left: 48px;
+}
+
+.wedding-app--blogpost .demo-back {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: white;
+    z-index: 9999;
+}
+
+.wedding-app .section-spacer {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.wedding-app .something-else {
+    overflow: visible;
+    z-index: 10;
+}
+
+.wedding-app .amazing .mdl-card__title {
+    background-color: #263238;
+}
+
+.wedding-app .minilogo {
+    width: 44px;
+    height: 44px;
+    background-image: url('../images/avatar.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    border-radius: 22px;
+    background-color: #BCBCBC;
+}
+
+.wedding-app .cerimonia-card .minilogo {
+    background-image: url('../images/icons/ic_group_white_24px.svg');
+}
+
+.wedding-app .santamaria-card .minilogo {
+    background-image: url('../images/icons/ic_nature_people_white_24px.svg');
+}
+
+.wedding-app .hotel-card .minilogo {
+    background-image: url('../images/icons/ic_hotel_white_24px.svg');
+}
+
+.social-btn-group {
+    padding: 5px;
+    height: 20px;
+}
+
+.social-btn-group > button {
+    margin: 0;
+}
+
+/* Fixes for IE 10 */
+.mdl-grid {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.social-btn {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin: 0 16px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.46;
+    border-radius: 2px;
+}
+
+.social-btn__twitter {
+    background-image: url('https://www.gstatic.com/../images/icons/material/system/2x/post_twitter_black_24dp.png');
+}
+
+.social-btn__blogger {
+    background-image: url('https://www.gstatic.com/../images/icons/material/system/2x/post_facebook_black_24dp.png');
+}
+
+.social-btn__gplus {
+    background-image: url('https://www.gstatic.com/../images/icons/material/system/2x/post_gplus_black_24dp.png');
+}
+
+.social-btn__site {
+    background-image: url('../images/icons/ic_language_white_24px.svg');
+}
+
+.social-btn__share {
+    color: rgba(0, 0, 0, 0.54);
+    background: transparent;
+}
+
+.wedding-app .mdl-mini-footer {
+    margin-top: 80px;
+    height: 120px;
+    padding: 40px;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+video {
+    width: 100%;
+}

@@ -1,0 +1,70 @@
+{% extends "base_elisaefrancesco.html" %}
+{% load mezzanine_tags keyword_tags staticfiles pages_tags %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+    {% keywords_for page as keywords %}
+    {% for keyword in keywords %}
+        {% if not forloop.first %}, {% endif %}
+        {{ keyword }}
+    {% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+    {{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block extra_css %}{{ block.super }}
+    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/honeymoon_style.css" %}">
+{% endblock extra_css %}
+
+
+{% block content-body %}
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/material.min.css" %}">
+    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/main.css" %}">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+
+    <script src="{% static "elisaefrancesco/js/material.min.js" %}"></script>
+
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <style>
+        .demo-layout-transparent {
+            z-index: 9999;
+        }
+    </style>
+
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+
+        {% include "pages/menus/ef_navbar.html" %}
+
+        <div class="mdl-layout__content">
+            <a name="top"></a>
+
+        </div>
+    </div>
+
+    {% include "pages/honeymoon_content.html" %}
+
+    {% include "includes/ef_footer.html" %}
+
+{% endblock %}
+
+{% block extra_footer_scripts %}
+    <script src="{% static "elisaefrancesco/js/dist/app.js" %}"></script>
+{% endblock %}

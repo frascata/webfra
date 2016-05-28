@@ -10,21 +10,22 @@ import sys
 from importlib import import_module
 
 from django.template import TemplateDoesNotExist
-from django.template.loader import BaseLoader
+# from django.template.loader import BaseLoader
+from django.template.loaders.base import Loader
 from django.utils._os import safe_join
 
 from mezzanine.conf import settings
 from mezzanine.core.request import current_request
 
-
 fs_encoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
 
 
-class Loader(BaseLoader):
+
+class MezzanineLoader(Loader):
     is_usable = True
 
-    def __init__(self, *args, **kwargs):
-        super(Loader, self).__init__(None, *args, **kwargs)
+    def __init__(self, engine):
+        super(MezzanineLoader, self).__init__(engine)
 
     def get_template_sources(self, template_name, template_dirs=None):
         """
@@ -65,4 +66,5 @@ class Loader(BaseLoader):
                 pass
         raise TemplateDoesNotExist(template_name)
 
-_loader = Loader()
+
+_loader = MezzanineLoader(None)

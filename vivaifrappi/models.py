@@ -1,5 +1,10 @@
 import os
 
+try:
+    from urllib.parse import urljoin
+except ImportError:  # Python 2
+    from urlparse import urljoin
+
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import ImageField
@@ -21,8 +26,9 @@ class HomePage(Page, RichText):
     main_content = models.TextField()
     main_content_class = models.CharField(max_length=100, null=True, blank=True)
     services_page = models.ForeignKey(to="OneSectionPage", null=True, blank=True, default=None)
-    portfolio_content_title = models.CharField(max_length=100, default=_("Perche' Scegliere Vivai Frappi"))
+    portfolio_content_title = models.CharField(max_length=100, default=_(""))
     last_news_visible = models.BooleanField(default=False)
+    base_page_template = models.CharField(max_length=100, default="pages/richtextpage.html")
 
     class Meta:
         verbose_name = _("Home")
@@ -125,7 +131,7 @@ class Project(Displayable):
     page = models.ForeignKey(to=OneSectionPage, null=True, blank=True, default=None)
 
     objects = SearchableManager()
-    search_fields = ("name", )
+    search_fields = ("name",)
 
     def __unicode__(self):
         suffix = u''

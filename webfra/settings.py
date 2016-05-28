@@ -202,18 +202,18 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        # "DIRS": [
-        #     os.path.join(PROJECT_ROOT, "templates"),
-        #     # os.path.join(PROJECT_ROOT, "vivaifrappi", "templates"),
-        #     # os.path.join(PROJECT_ROOT, "test_fra", "templates"),
-        # ],
-        "APP_DIRS": False,
+        "DIRS": [
+            os.path.join(PROJECT_ROOT, "templates"),
+            os.path.join(PROJECT_ROOT, "vivaifrappi", "templates"),
+            os.path.join(PROJECT_ROOT, "elisaefrancesco", "templates"),
+        ],
+        "APP_DIRS": True,
         "OPTIONS": {
-            "loaders": [
-                "mezzanine_utils.loaders.Loader",
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-            ],
+            # "loaders": [
+            #     "mezzanine_utils.loaders.MezzanineLoader",
+            #     'django.template.loaders.filesystem.Loader',
+            #     'django.template.loaders.app_directories.Loader',
+            # ],
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
@@ -243,7 +243,7 @@ if DJANGO_VERSION < (1, 9):
 
 INSTALLED_APPS = (
     "vivaifrappi",
-    "test_fra",
+    "elisaefrancesco",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -289,7 +289,7 @@ MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
     "mezzanine.core.middleware.SitePermissionMiddleware",
     # Uncomment the following if using any of the SSL settings:
-    # "mezzanine.core.middleware.SSLRedirectMiddleware",
+    "mezzanine.core.middleware.SSLRedirectMiddleware",
     "mezzanine.pages.middleware.PageMiddleware",
     "mezzanine.core.middleware.FetchFromCacheMiddleware",
 )

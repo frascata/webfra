@@ -1,0 +1,37 @@
+{% load mezzanine_tags %}
+
+{% nevercache %}
+    <input type="hidden" name="referrer" value="{{ request.META.HTTP_REFERER }}">
+    {% csrf_token %}
+{% endnevercache %}
+
+{% for field in form_for_fields %}
+    aaa
+    {% if field.is_hidden %}
+        {{ field }}
+    {% else %}
+        <div class="mdl-textfield mdl-js-textfield form-group input_{{ field.id_for_label }} {{ field.field.type }}
+    {% if field.errors %} has-error{% endif %}">
+            {% if field.label %}
+
+                <label class="mdl-textfield__label" for="{{ field.auto_id }}">{{ field.label }}</label>{% endif %}
+            <div class="mdl-textfield__input">
+                {{ field }}
+                {% if field.errors %}
+                    <p class="help-block">
+                        {% for e in field.errors %}
+                            {% if not forloop.first %} / {% endif %}{{ e }}
+                        {% endfor %}
+                    </p>
+                {% elif field.help_text %}
+                    <p class="help-block">{{ field.help_text }}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+<div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="sample1">
+    <label class="mdl-textfield__label" for="sample1">Text...</label>
+</div>

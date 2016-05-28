@@ -1,0 +1,22 @@
+<div class="ef-header mdl-layout__header mdl-layout__header--waterfall">
+    <div class="mdl-layout__header-row">
+              <span class="ef-title mdl-layout-title font-secondary">
+    {#            <img class="ef-logo-image" src="images/ef-logo.png">#}
+                  elisa e francesco
+              </span>
+        <!-- Add spacer, to align navigation to the right in desktop -->
+        <div class="ef-header-spacer mdl-layout-spacer"></div>
+
+        <!-- Navigation -->
+        <div class="ef-navigation-container">
+            {% include "pages/menus/ef_header.html" %}
+        </div>
+    </div>
+</div>
+
+<!-- left menu -->
+<div class="ef-drawer mdl-layout__drawer">
+    <span class="mdl-layout-title">
+    </span>
+    {% include "pages/menus/ef_menu.html" %}
+</div>

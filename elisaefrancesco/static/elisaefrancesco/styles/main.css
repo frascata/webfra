@@ -1,0 +1,703 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Disable ugly boxes around images in IE10 */
+a img {
+    border: 0px;
+}
+
+.font-secondary {
+    font-family: 'Tangerine', cursive;
+}
+
+::-moz-selection {
+    background-color: #6ab344;
+    color: #fff;
+}
+
+::selection {
+    background-color: #6ab344;
+    color: #fff;
+}
+
+.ef-search-box .mdl-textfield__input {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.ef-header .mdl-menu__container {
+    z-index: 50;
+    margin: 0 !important;
+}
+
+.mdl-textfield--expandable {
+    width: auto;
+}
+
+.ef-fab {
+    position: absolute;
+    right: 20%;
+    bottom: -26px;
+    z-index: 3;
+    background: #64ffda !important;
+    color: black !important;
+}
+
+.ef-bg-white {
+    background-color: white;
+}
+
+.ef-mobile-title {
+    display: none !important;
+}
+
+.ef-logo-image {
+    height: 28px;
+    width: 140px;
+}
+
+.ef-title {
+    font-size: 36px;
+}
+
+.ef-header {
+    overflow: visible;
+    background-color: transparent;
+}
+
+.ef-header .material-icons {
+    color: #767777 !important;
+}
+
+.ef-header .mdl-layout__drawer-button {
+    background: transparent;
+    /*color: #767777;*/
+}
+
+.ef-header .mdl-navigation__link {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.ef-navigation-container {
+    /* Simple hack to make the overflow happen to the left instead... */
+    direction: rtl;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    width: 500px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ef-navigation {
+    /* ... and now make sure the content is actually LTR */
+    direction: ltr;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    width: 800px;
+}
+
+.ef-search-box.is-focused + .ef-navigation-container {
+    opacity: 0;
+    width: 100px;
+}
+
+.ef-navigation .mdl-navigation__link {
+    display: inline-block;
+    height: 60px;
+    line-height: 68px;
+    background-color: transparent !important;
+    border-bottom: 4px solid transparent;
+}
+
+.ef-navigation .mdl-navigation__link:hover {
+    border-bottom: 4px solid #A7C82F;
+}
+
+.ef-search-box {
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.ef-more-button {
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+}
+
+.ef-drawer {
+    border-right: none;
+}
+
+.ef-drawer-separator {
+    height: 1px;
+    background-color: #dcdcdc;
+    margin: 8px 0;
+}
+
+.ef-drawer .mdl-navigation__link.mdl-navigation__link {
+    font-size: 14px;
+    color: #757575;
+}
+
+.ef-drawer span.mdl-navigation__link.mdl-navigation__link {
+    color: #A7C82F;
+}
+
+.ef-drawer .mdl-layout-title {
+    position: relative;
+    height: 160px;
+    background: url('../images/fraeli.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.ef-drawer .ef-logo-image {
+    position: absolute;
+    bottom: 16px;
+}
+
+.ef-content {
+    background-color: white;
+}
+
+.ef-home {
+    position: relative;
+    height: 800px;
+    width: auto;
+    margin-top: -60px;
+    background-image: url('../images/home_background.jpg');
+    background-size: 100% 800px;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.ef-location {
+    position: relative;
+    height: 800px;
+    width: auto;
+    margin-top: -60px;
+    background-image: url('../images/location_background.png');
+    background-size: 100% 800px;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+.ef-calendar > .mdl-card__media {
+    background-color: #DA726F !important;
+    height: 100px;
+    text-align: center;
+    padding: 40px;
+    font-size: 38px;
+    color: white;
+}
+
+.ef-card-container .ef-calendar .mdl-card__supporting-text {
+    padding: 20px;
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #eee;
+}
+
+.ef-calendar > .mdl-card__title {
+    font-size: 120px;
+    height: 400px;
+    padding-top: 80px;
+    text-align: center;
+    display: block;
+}
+
+.logo-font {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    line-height: 1;
+    color: #767777;
+    font-weight: 500;
+}
+
+.ef-slogan {
+    font-size: 100px;
+    padding-top: 160px;
+    font-weight: 700;
+}
+
+.ef-sub-slogan {
+    font-size: 64px;
+    padding-top: 60px;
+}
+
+.ef-create-character {
+    font-size: 21px;
+    padding-top: 400px;
+}
+
+.ef-create-character a {
+    text-decoration: none;
+    color: #767777;
+    font-weight: 300;
+}
+
+.ef-screen-section {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.ef-screens {
+    text-align: right;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.ef-screen {
+    text-align: center;
+}
+
+.ef-screen .ef-link {
+    margin-top: 16px;
+    display: block;
+    z-index: 2;
+}
+
+.ef-image-link {
+    text-decoration: none;
+}
+
+.ef-wear {
+    display: inline-block;
+    width: 160px;
+    margin-right: 32px;
+}
+
+.ef-wear .ef-screen-image {
+    width: 40%;
+    z-index: 1;
+}
+
+.ef-phone {
+    display: inline-block;
+    width: 64px;
+    margin-right: 48px;
+}
+
+.ef-phone .ef-screen-image {
+    width: 100%;
+    z-index: 1;
+}
+
+.ef-tablet {
+    display: inline-block;
+    width: 110px;
+    margin-right: 64px;
+}
+
+.ef-tablet .ef-screen-image {
+    width: 100%;
+    z-index: 1;
+}
+
+.ef-tablet .ef-link {
+    display: block;
+    z-index: 2;
+}
+
+.ef-tv {
+    display: inline-block;
+    width: 300px;
+    margin-right: 80px;
+}
+
+.ef-tv .ef-screen-image {
+    width: 100%;
+    z-index: 1;
+}
+
+.ef-auto {
+    display: inline-block;
+    width: 300px;
+    overflow: hidden;
+}
+
+.ef-auto .ef-screen-image {
+    display: block;
+    height: 300px;
+    z-index: 1;
+}
+
+.ef-wedding-section {
+    position: relative;
+    height: 800px;
+}
+
+.ef-wedding-band {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    opacity: 0.98;
+}
+
+.ef-location-band {
+    position: relative;
+    padding: 24px;
+    /*background-color: #DBEED1;*/
+}
+
+.ef-location-section:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+.ef-location-section:nth-child(even) {
+    background-color: #fafafa;
+}
+div.ef-location-section .ef-location-band {
+    background-color: inherit;
+}
+
+/*div.ef-location-section:nth-child(odd) .ef-location-band{*/
+    /*margin-left: 15%;*/
+    /*margin-right: 0;*/
+    /*background-color: inherit;*/
+/*}*/
+/*div.ef-location-section:nth-child(even) .ef-location-band{*/
+    /*margin-left: 0;*/
+    /*margin-right: 15%;*/
+    /*background-color: inherit;*/
+/*}*/
+div.ef-location-section:nth-child(odd) .ef-wedding-band-text{
+    margin-left: 15%;
+    margin-right: 0;
+}
+
+
+div.ef-location-section:nth-child(even) .ef-wedding-band-text {
+    margin-left: 0;
+    margin-right: 15%;
+}
+
+.ef-wedding-band-text {
+    max-width: 800px;
+    margin-left: 25%;
+    padding: 24px;
+    text-align: left;
+    color: black;
+}
+
+.ef-wedding-band-text p {
+    padding-top: 8px;
+}
+
+.ef-wedding-section.church {
+    background: url('../images/bg_chiesa.jpg') center top no-repeat;
+    background-size: cover;
+}
+
+.ef-wedding-section.santamaria {
+    background: url('../images/bg_santamaria.jpg') center top no-repeat;
+    background-size: cover;
+}
+
+.ef-wedding-section.santamaria .ef-wedding-band-text {
+    margin-left: 5%;
+}
+
+.ef-wedding-section.hotel {
+    background: url('../images/bg_hotel.jpg') center top no-repeat;
+    background-size: cover;
+}
+
+.ef-wedding-section.honeymoon {
+    background: url('../images/bg_viaggio.jpg') center top no-repeat;
+    background-size: cover;
+}
+
+.ef-wedding-section.honeymoon .ef-wedding-band-text {
+    margin-left: 5%;
+}
+
+.ef-link {
+    text-decoration: none;
+    color: #A7C82F !important;
+}
+
+.ef-link:hover {
+    color: #7cb342 !important;
+}
+
+.ef-link .material-icons {
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+}
+
+.ef-alt-link {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.ef-alt-link .material-icons {
+    position: relative;
+    top: 6px;
+}
+
+.ef-customized-section {
+    text-align: center;
+}
+
+.ef-customized-section-text {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 80px 16px 0 16px;
+}
+
+.ef-customized-section-text p {
+    padding-top: 16px;
+}
+
+.ef-customized-section-image {
+    background: url('../images/test/devices.jpg') center top no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+.ef-date-section {
+    background-color: white;
+    padding: 80px 0;
+    max-width: 1044px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ef-date-section .ef-section-title {
+    margin-left: 12px;
+    padding-bottom: 24px;
+}
+
+.ef-card-container {
+}
+
+.ef-card-container .mdl-card__media {
+    overflow: hidden;
+    background: transparent;
+}
+
+.ef-card-container .mdl-card__media img {
+    width: 100%;
+}
+
+.ef-card-container .mdl-card__title {
+    background: transparent;
+    height: auto;
+}
+
+.ef-card-container .mdl-card__title-text {
+    color: black;
+    height: auto;
+}
+
+.ef-card-container .mdl-card__supporting-text {
+    height: auto;
+    color: black;
+    padding-bottom: 56px;
+}
+
+.ef-card-container .mdl-card__actions {
+    position: absolute;
+    bottom: 0;
+}
+
+.ef-card-container .mdl-card__actions a {
+    border-top: none;
+    font-size: 16px;
+}
+
+.ef-footer {
+    margin-top: 0;
+    background-color: #fafafa;
+    position: relative;
+    padding: 40px 40px;
+}
+
+.ef-footer .section__circle-container > .section__circle-container__circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 8px 0;
+}
+
+.ef-footer .elisa .section__circle-container > .section__circle-container__circle {
+    background-image: url('../images/eli.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ef-footer .francesco .section__circle-container > .section__circle-container__circle {
+    background-image: url('../images/fra.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ef-footer .footer-person {
+    margin: 40px;
+}
+
+.ef-footer .footer-person > span {
+    font-size: 64px;
+    padding-right: 30px;
+}
+
+.ef-footer .footer-social-btn {
+    margin-right: 3%;
+}
+
+.ef-footer a:hover {
+    color: #A7C82F;
+}
+
+.ef-footer .mdl-mega-footer--top-section::after {
+    border-bottom: none;
+}
+
+.ef-footer .mdl-mega-footer--middle-section::after {
+    border-bottom: none;
+}
+
+.ef-footer .mdl-mega-footer--bottom-section {
+    position: relative;
+}
+
+.ef-footer .mdl-mega-footer--bottom-section a {
+    margin-right: 2em;
+}
+
+.ef-footer .mdl-mega-footer--right-section a .material-icons {
+    position: relative;
+    top: 6px;
+}
+
+.ef-link-menu:hover {
+    cursor: pointer;
+}
+
+/* iframe google map scroll issue */
+.ef-map {
+    width: 100%;
+    height: 400px;
+}
+
+.ef-map-wrap {
+    position: relative;
+}
+
+.ef-map-overlay {
+    width: 100%;
+    min-height: 400px;
+    position: absolute;
+    top: 0;
+}
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+    .ef-navigation-container {
+        display: none;
+    }
+
+    .ef-title {
+        display: none !important;
+    }
+
+    .ef-mobile-title {
+        display: block !important;
+        position: absolute;
+        left: calc(50% - 70px);
+        top: 12px;
+        transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+       consecutive "+" operators in some cases. Therefore, we need to use both
+       here to cover all the bases. */
+    .android.ef-search-box.is-focused ~ .ef-mobile-title,
+    .ef-search-box.is-focused + .ef-navigation-container + .ef-mobile-title {
+        opacity: 0;
+    }
+
+    .ef-more-button {
+        display: none;
+    }
+
+    .ef-search-box.is-focused {
+        width: calc(100% - 48px);
+    }
+
+    .ef-search-box .mdl-textfield__expandable-holder {
+        width: 100%;
+    }
+
+    .ef-home {
+        height: 350px;
+    }
+
+    .ef-slogan {
+        font-size: 70px;
+        margin: 0 16px;
+        /*padding-top: 24px;*/
+        color: white;
+    }
+
+    .ef-sub-slogan {
+        font-size: 32px;
+        margin: 0 16px;
+        padding-top: 30px;
+        color: white;
+    }
+
+    .ef-create-character {
+        padding-top: 200px;
+        font-size: 16px;
+    }
+
+    .ef-create-character img {
+        height: 12px;
+    }
+
+    .ef-fab {
+        display: none;
+    }
+
+    .ef-wedding-band-text {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    .ef-footer .mdl-mega-footer--bottom-section {
+        display: none;
+    }
+}

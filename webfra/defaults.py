@@ -4,8 +4,8 @@ from mezzanine.conf import register_setting
 
 THEME_CHOICES = (
     ('', _("Default")),
-    ('vivaifrappi', _("Vivai frappi")),
-    ('test_fra', _("Test Fra")),
+    ('vivaifrappi', _("Vivai Frappi")),
+    ('elisaefrancesco', _("Elisa Francesco")),
 )
 
 register_setting(

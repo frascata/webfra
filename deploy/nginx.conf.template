@@ -4,6 +4,11 @@ upstream %(proj_name)s {
 }
 
 server {
+    server_name  www.elisaefrancesco.it;
+    rewrite ^(.*) http://elisaefrancesco.it$1 permanent;
+}
+
+server {
 
     listen 80;
     %(ssl_disabled)s listen 443 ssl;

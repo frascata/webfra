@@ -1,0 +1,90 @@
+{% load mezzanine_tags i18n blog_tags keyword_tags staticfiles pages_tags %}
+<!-- home -->
+{#<div class="ef-home mdl-typography--text-center">#}
+{#    <div class="ef-slogan font-secondary">Elisa & Francesco</div>#}
+{#    <div class="ef-sub-slogan font-secondary">24 settembre 2016#}
+{#    </div>#}
+{#</div>#}
+
+<!-- home -->
+<div class="ef-home mdl-typography--text-center">
+    <div class="ef-slogan font-secondary">Elisa & Francesco</div>
+    <div class="ef-sub-slogan font-secondary">24 settembre 2016
+    </div>
+</div>
+
+<!-- date -->
+<div class="ef-confirm-section" style="padding-bottom: 1000px;">
+    <div class="ef-card-container mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+
+        </div>
+
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="sample1">
+                <label class="mdl-textfield__label" for="sample1">Text...</label>
+            </div>
+
+            {% if request.GET.sent %}
+                {% editable page.form.response %}
+                    {{ page.form.response|richtext_filters|safe }}
+                {% endeditable %}
+            {% else %}
+                {% with page.form as page_form %}
+                    {% editable page_form.content %}
+                        {{ page_form.content|richtext_filters|safe }}
+                    {% endeditable %}
+                {% endwith %}
+
+                {% errors_for form %}
+
+                <form class="mezzanine-form" method="post"{% if form.is_multipart %}
+                      enctype="multipart/form-data"{% endif %}>
+                    {#                                        {% fields_for form %}#}
+                    {% nevercache %}
+                        <input type="hidden" name="referrer" value="{{ request.META.HTTP_REFERER }}">
+                        {% csrf_token %}
+                    {% endnevercache %}
+
+                    {% for field in form %}
+                        aaa
+                        {% if field.is_hidden %}
+                            {{ field }}
+                        {% else %}
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-group input_{{ field.id_for_label }} {{ field.field.type }}
+    {% if field.errors %} has-error{% endif %}">
+                                {% if field.label %}
+
+                                    <label class="mdl-textfield__label"
+                                           for="{{ field.auto_id }}">{{ field.label }}</label>{% endif %}
+                                <div class="mdl-textfield__input">
+                                    {{ field }}
+                                    {% if field.errors %}
+                                        <p class="help-block">
+                                            {% for e in field.errors %}
+                                                {% if not forloop.first %} / {% endif %}{{ e }}
+                                            {% endfor %}
+                                        </p>
+                                    {% elif field.help_text %}
+                                        <p class="help-block">{{ field.help_text }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="form-actions">
+
+                        <input class="btn btn-primary" type="submit"
+                               value="
+
+                                       {% if page.form.button_text %}{{ page.form.button_text }}{% else %}{% trans "Submit" %}{% endif %}">
+                    </div>
+                </form>
+
+            {% endif %}
+        </div>
+
+    </div>
+</div>
