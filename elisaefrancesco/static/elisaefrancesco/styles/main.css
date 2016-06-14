@@ -1,23 +1,33 @@
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+@font-face {
+    font-family: 'Daniel';
+    src: url('../fonts/Daniel/Daniel.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Daniel/Daniel.woff') format('woff'),
+    url('../fonts/Daniel/Daniel.ttf') format('truetype'),
+    url('../fonts/Daniel/Daniel.svg#Daniel') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
     margin: 0;
     padding: 0;
 }
+
+/* MATERIAL COLORS CUSTOMIZATION*/
+a {
+    color: #D7B528;
+}
+
+.mdl-button.mdl-button--colored {
+    /*color: #D7B528;*/
+    color: #5B869F;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+    padding: 16px 20px;
+    color: #5B869F;
+}
+
 
 /* Disable ugly boxes around images in IE10 */
 a img {
@@ -25,7 +35,8 @@ a img {
 }
 
 .font-secondary {
-    font-family: 'Tangerine', cursive;
+    /*font-family: 'Daniel', cursive;*/
+    font-family: 'Daniel', Arial, sans-serif;
 }
 
 ::-moz-selection {
@@ -127,10 +138,12 @@ a img {
     line-height: 68px;
     background-color: transparent !important;
     border-bottom: 4px solid transparent;
+    /*color: #333333;*/
+    color: #5B869F;
 }
 
 .ef-navigation .mdl-navigation__link:hover {
-    border-bottom: 4px solid #A7C82F;
+    border-bottom: 4px solid #D7B528;
 }
 
 .ef-search-box {
@@ -158,12 +171,11 @@ a img {
 }
 
 .ef-drawer .mdl-navigation__link.mdl-navigation__link {
-    font-size: 14px;
-    color: #757575;
+    font-size: 20px;
 }
 
 .ef-drawer span.mdl-navigation__link.mdl-navigation__link {
-    color: #A7C82F;
+    color: #D7B528;
 }
 
 .ef-drawer .mdl-layout-title {
@@ -179,18 +191,17 @@ a img {
 }
 
 .ef-content {
-    background-color: white;
+    /*background-color: white;*/
+    background-image: url('../images/bg_ef.svg');
 }
 
 .ef-home {
     position: relative;
-    height: 800px;
+    height: 500px;
     width: auto;
     margin-top: -60px;
-    background-image: url('../images/home_background.jpg');
-    background-size: 100% 800px;
-    background-repeat: no-repeat;
-    background-position: left top;
+    background-color: white;
+    color: #5B869F;
 }
 
 .ef-location {
@@ -239,13 +250,13 @@ a img {
 
 .ef-slogan {
     font-size: 100px;
-    padding-top: 160px;
+    padding-top: 250px;
     font-weight: 700;
 }
 
 .ef-sub-slogan {
     font-size: 64px;
-    padding-top: 60px;
+    padding-top: 80px;
 }
 
 .ef-create-character {
@@ -370,28 +381,29 @@ a img {
 .ef-location-section:nth-child(odd) {
     background-color: #f5f5f5;
 }
+
 .ef-location-section:nth-child(even) {
     background-color: #fafafa;
 }
+
 div.ef-location-section .ef-location-band {
     background-color: inherit;
 }
 
 /*div.ef-location-section:nth-child(odd) .ef-location-band{*/
-    /*margin-left: 15%;*/
-    /*margin-right: 0;*/
-    /*background-color: inherit;*/
+/*margin-left: 15%;*/
+/*margin-right: 0;*/
+/*background-color: inherit;*/
 /*}*/
 /*div.ef-location-section:nth-child(even) .ef-location-band{*/
-    /*margin-left: 0;*/
-    /*margin-right: 15%;*/
-    /*background-color: inherit;*/
+/*margin-left: 0;*/
+/*margin-right: 15%;*/
+/*background-color: inherit;*/
 /*}*/
-div.ef-location-section:nth-child(odd) .ef-wedding-band-text{
+div.ef-location-section:nth-child(odd) .ef-wedding-band-text {
     margin-left: 15%;
     margin-right: 0;
 }
-
 
 div.ef-location-section:nth-child(even) .ef-wedding-band-text {
     margin-left: 0;
@@ -486,7 +498,8 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
 }
 
 .ef-date-section {
-    background-color: white;
+    /*background-color: white;*/
+    /*background-image: url('../images/bg_ef.svg');*/
     padding: 80px 0;
     max-width: 1044px;
     margin-left: auto;
@@ -498,7 +511,16 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
     padding-bottom: 24px;
 }
 
+/* CARDS */
+.mdl-card {
+    width: 100%;
+}
+
 .ef-card-container {
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 80%;
 }
 
 .ef-card-container .mdl-card__media {
@@ -511,8 +533,10 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
 }
 
 .ef-card-container .mdl-card__title {
-    background: transparent;
-    height: auto;
+    /*background: transparent;*/
+    /*height: auto;*/
+    color: #fff;
+    height: 500px;
 }
 
 .ef-card-container .mdl-card__title-text {
@@ -524,6 +548,12 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
     height: auto;
     color: black;
     padding-bottom: 56px;
+    width: 100%;
+}
+
+.ef-card-container .mdl-card__supporting-text > div,
+.ef-card-container .mdl-card__supporting-text > p {
+    padding: 10px 0 10px 0;
 }
 
 .ef-card-container .mdl-card__actions {
@@ -534,6 +564,31 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
 .ef-card-container .mdl-card__actions a {
     border-top: none;
     font-size: 16px;
+}
+
+.ef-card-container > .mdl-card__menu {
+    color: #fff;
+}
+
+.ef-date-card {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.mdl-card__title.wedding {
+    background: url('../images/bg_chiesa.jpg') top / cover;
+}
+
+.mdl-card__title.santamaria {
+    background: url('../images/bg_santamaria.jpg') top / cover;
+}
+
+.mdl-card__title.hotel {
+    background: url('../images/bg_hotel.jpg') bottom / cover;
+}
+
+.mdl-card__title.honeymoon {
+    background: url('../images/bg_viaggio.jpg') top / cover;
 }
 
 .ef-footer {
@@ -578,7 +633,7 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
 }
 
 .ef-footer a:hover {
-    color: #A7C82F;
+    color: #AE9321;
 }
 
 .ef-footer .mdl-mega-footer--top-section::after {

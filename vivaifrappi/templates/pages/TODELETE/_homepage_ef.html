@@ -1,0 +1,218 @@
+{% load mezzanine_tags i18n blog_tags keyword_tags staticfiles %}
+
+{% block content-body %}
+    <link rel="stylesheet"
+          href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/main.css" %}">
+
+    <!-- Material Design icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/styles.css" %}">
+
+    <style>
+        video {
+            width: 100%;
+        }
+    </style>
+    <div class="wedding-app mdl-layout mdl-js-layout has-drawer is-upgraded">
+        <main class="mdl-layout__content">
+            <div class="wedding-app__posts mdl-grid">
+
+                <div class="mdl-card video-card mdl-cell mdl-cell--8-col">
+                    <!--<div class="mdl-card__media mdl-color-text&#45;&#45;grey-50">-->
+                    <!--<h3><a href="entry.html">Coffee Pic</a></h3>-->
+                    <!--</div>-->
+                    <div class="mdl-card__media" style="background-color: white">
+                        <video id="introVideo" autoplay loop controls>
+                            <source src="{% static "elisaefrancesco/images/video.mp4" %}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
+                    <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
+                        <div style="text-align: center; font-size: 32px; line-height: 32px;">
+                            Elisa
+                            <br/>
+                            &
+                            <br/>
+                            Francesco
+                        </div>
+                    </div>
+                    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                        <div>
+                            <strong>24 settembre</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-card cerimonia-card mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50">
+                        <h3>La cerimonia</h3>
+                    </div>
+                    <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                        La pieve dei Santi Ippolito e Cassiano a Retina, oggi chiesa dei Cappuccini, è un edificio
+                        di
+                        culto cattolico
+                        che si trova in località Pieve a Retina, a Castiglion Fiorentino.
+                    </div>
+                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent"
+                            onclick="openMap('cerimonia-map')">
+                        <i class="material-icons mdl-color-text--white" role="presentation">map</i>
+                        <span class="visuallyhidden">map</span>
+                    </button>
+                    <div class="animated fadeIn" style="display:none;" id="cerimonia-map">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11606.627343396034!2d11.92796586925049!3d43.34236949683738!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3b7acbff351dafeb!2sChiesa+dei+Cappuccini!5e0!3m2!1sit!2sit!4v1457782367283"
+                                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                        <div class="minilogo"></div>
+                        <div>
+                            <strong>Chiesa dei Cappuccini, Castiglion Fiorentino</strong>
+            <span>
+
+            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-card santamaria-card mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50">
+                        <h3>Il ricevimento</h3>
+                    </div>
+                    <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                        Siamo lieti di ospitarvi nella splendida cornice di Santa Maria a Pigli
+                    </div>
+                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent"
+                            onclick="openMap('santamaria-map')">
+                        <i class="material-icons mdl-color-text--white" role="presentation">map</i>
+                        <span class="visuallyhidden">map</span>
+                    </button>
+                    <div class="animated fadeIn" style="display:none;" id="santamaria-map">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.7742837824644!2d11.862058315268529!3d43.40264697913075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132beddf907bd69b%3A0xd612fba95a0251c9!2sSanta+Maria+a+Pigli!5e0!3m2!1sit!2sit!4v1457793761578"
+                                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                        <div class="minilogo"></div>
+                        <div>
+                            <strong>Santa Maria a Pigli, Località Sant'Andrea a Pigli</strong>
+                            <!--<span class="social-btn-group">-->
+                            <!--<button class="mdl-mini-footer&#45;&#45;social-btn social-btn social-btn__blogger">-->
+                            <!--<span class="visuallyhidden">Facebook</span>-->
+                            <!--</button>-->
+                            <!--<button class="mdl-mini-footer&#45;&#45;social-btn social-btn social-btn__site">-->
+                            <!--<span class="visuallyhidden">Site</span>-->
+                            <!--</button>-->
+                            <!---->
+                            <!--</span>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-card hotel-card mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50">
+                        <h3>Dove dormire</h3>
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                        Per gli ospiti che vengono da fuori abbiamo pensato di ospitarvi all' hotel Planet che dista
+                        pochi chilometri
+                        dal luogo della cerimonia
+                    </div>
+
+                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent"
+                            onclick="openMap('hotel-map')">
+                        <i class="material-icons mdl-color-text--white" role="presentation">map</i>
+                        <span class="visuallyhidden">map</span>
+                    </button>
+                    <div class="animated fadeIn" style="display:none;" id="hotel-map">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11601.149092512347!2d11.87551!3d43.371017!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe90ae816a0237030!2sHotel+Planet+Srl!5e0!3m2!1sit!2sit!4v1457793942970"
+                                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                        <div class="minilogo"></div>
+                        <div>
+                            <strong>Hotel Planet, Località Rigutino</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-card viaggio-card mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50">
+                        <!--<h3>Il viaggio di nozze</h3>-->
+                    </div>
+                    <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+
+                        <a href="honeymoon">SCOPRI IL NOSTRO VIAGGIO DI NOZZE</a>
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button&#45;&#45;icon">
+                            <i class="material-icons" role="presentation">arrow_forward</i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer--left-section">
+                    <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
+                        <span class="visuallyhidden">Twitter</span>
+                    </button>
+                    <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
+                        <span class="visuallyhidden">Facebook</span>
+                    </button>
+                    <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
+                        <span class="visuallyhidden">Google Plus</span>
+                    </button>
+                </div>
+                <div class="mdl-mini-footer--right-section">
+                    <button class="mdl-mini-footer--social-btn social-btn__share">
+                        <i class="material-icons" role="presentation">share</i>
+                        <span class="visuallyhidden">share</span>
+                    </button>
+                </div>
+            </footer>
+        </main>
+        <div class="mdl-layout__obfuscator"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            function firstAnimation() {
+                $('.step:eq(0)').delay(500).animate({
+                    opacity: 1
+                }, 'medium');
+
+                $('.step:eq(1)').delay(1000).animate({
+                    opacity: 1
+                }, 'medium');
+
+                $('.step:eq(2)').delay(1500).animate({
+                    opacity: 1
+                }, 'medium');
+
+                $('.step:eq(3)').delay(2000).animate({
+                    opacity: 1
+                }, 'medium');
+            }
+
+            $(window).scroll(function () {
+                if ($(window).width() <= 549) {
+                    if ($(window).scrollTop() > 1800) {
+                        firstAnimation();
+                    }
+                } else if ($(window).width() > 549 && $(window).width() <= 991) {
+                    if ($(window).scrollTop() > 1200) {
+                        firstAnimation();
+                    }
+                } else {
+                    if ($(window).scrollTop() > 900) {
+                        firstAnimation();
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}
