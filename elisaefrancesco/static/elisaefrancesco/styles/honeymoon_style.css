@@ -55,8 +55,6 @@ a:focus {
     padding: 2em 1em 4em;
     text-align: center;
     color: #fff;
-    background: #181922 url(../images/home_background.jpg) no-repeat center center;
-    background-size: cover;
 }
 
 .home-header::before {
