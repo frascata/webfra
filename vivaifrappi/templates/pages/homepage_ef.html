@@ -15,8 +15,7 @@
         .demo-layout-transparent .mdl-layout__drawer-button {
             /* This background is dark, so we set text to white. Use 87% black instead if
                your background is light. */
-        {#            color: white;#}
-            color: #5B869F;
+        {#            color: white;#} color: #5B869F;
         }
 
         .mdl-dialog__content iframe {
@@ -61,6 +60,12 @@
     </div>
 
     <script>
+        var IS_IPHONE = navigator.userAgent.indexOf("iPhone") != -1;
+        var IS_IPOD = navigator.userAgent.indexOf("iPod") != -1;
+        var IS_IPAD = navigator.userAgent.indexOf("iPad") != -1;
+        var IS_IOS = IS_IPHONE || IS_IPOD || IS_IPAD;
+        var IS_ANDROID = /(android)/i.test(navigator.userAgent);
+
         var dialog = document.querySelector('dialog');
         var showModalButtons = document.querySelectorAll('.show-map');
 
@@ -70,6 +75,7 @@
         if (showModalButtons.length !== 0) {
             for (var i = 0; i < showModalButtons.length; i++) {
                 showModalButtons[i].addEventListener('click', function (e) {
+
                     var map = e.currentTarget.getAttribute('data-map');
                     var maps = document.querySelectorAll('dialog.mdl-dialog .mdl-dialog__content iframe');
                     for (var i = 0; i < maps.length; i++) {
@@ -79,7 +85,13 @@
                     if (currentMap) {
                         currentMap.style.display = 'block';
                     }
-                    dialog.showModal();
+{#                    console.log(IS_ANDROID);#}
+{#                    console.log(IS_IOS);#}
+                    if (IS_ANDROID || IS_IOS) {
+                        window.open(currentMap.src);
+                    } else {
+                        dialog.showModal();
+                    }
                 });
             }
         }
