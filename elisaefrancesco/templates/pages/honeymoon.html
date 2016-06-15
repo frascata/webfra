@@ -18,39 +18,19 @@
 {% block extra_head %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static "elisaefrancesco/styles/honeymoon_style.css" %}">
+    <style>
+        .demo-layout-transparent {
+            z-index: 9999;
+            background: inherit;
+        }
+
+        .ef-navigation .mdl-navigation__link {
+            color: white;
+        }
+    </style>
 {% endblock extra_head %}
 
 {% block content-body %}
-{#    {% include "includes/ef_header_scripts.html" %}#}
-    <style>
-        #view-source {
-            position: fixed;
-            display: block;
-            right: 0;
-            bottom: 0;
-            margin-right: 40px;
-            margin-bottom: 40px;
-            z-index: 900;
-        }
-
-        .demo-layout-transparent {
-            z-index: 9999;
-        }
-
-        .intro p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            position: relative;
-            font-size: 24px;
-            font-weight: 300;
-            font-style: italic;
-            line-height: 1.35;
-            letter-spacing: .08em;
-            padding: 0 0 0 15px;
-        }
-    </style>
-
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
 
         {% include "pages/menus/ef_navbar.html" %}

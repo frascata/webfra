@@ -17,64 +17,35 @@
 
 {% block extra_css %}{% endblock %}
 
-{% block content-body %}
-
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/material.min.css" %}">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/main.css" %}">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.css" %}">
-
-    <script src="{% static "elisaefrancesco/js/material.min.js" %}"></script>
-    <script src="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.js" %}"></script>
-
+{% block extra_head %}
+    {{ block.super }}
     <!-- Uses a transparent header that draws on top of the layout's background -->
     <style>
-        #view-source {
-            position: fixed;
-            display: block;
-            right: 0;
-            bottom: 0;
-            margin-right: 40px;
-            margin-bottom: 40px;
-            z-index: 900;
-        }
-
         .demo-layout-transparent {
-            background-image: url('/static/elisaefrancesco/images/location_background.png');
+            background: url( {% static "elisaefrancesco/images/location_background.png" %}) no-repeat left top;
             background-size: 100% 800px;
-            background-repeat: no-repeat;
-            background-position: left top;
         }
 
         .demo-layout-transparent .mdl-layout__header,
         .demo-layout-transparent .mdl-layout__drawer-button {
             /* This background is dark, so we set text to white. Use 87% black instead if
                your background is light. */
-{#            color: white;#}
-            color: rgba(0, 0, 0, 0.87);
+            color: white;
+        {#            color: rgba(0, 0, 0, 0.87);#}
         }
 
-{#        .ef-color-inverse .mdl-layout__header,#}
-{#        .ef-color-inverse .mdl-layout__drawer-button,#}
-{#        .ef-color-inverse .mdl-layout__header .mdl-navigation .mdl-navigation__link {#}
-{#            color: rgba(0, 0, 0, 0.87);#}
-{#        }#}
-
-        .mdl-dialog__content iframe {
-            border: 0;
-            width: 100%;
-            height: 100%;
+        .ef-navigation .mdl-navigation__link {
+            color: white;
         }
     </style>
+{% endblock extra_head %}
 
+
+{% block content-body %}
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
         {% include "pages/menus/ef_navbar.html" %}
 
-        <div class="mdl-layout__content ef-bg-white">
+        <div class="ef-content mdl-layout__content">
             <a name="top"></a>
 
             {% include "pages/location_content.html" %}
