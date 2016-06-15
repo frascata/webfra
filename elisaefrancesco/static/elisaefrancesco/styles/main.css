@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -28,7 +28,6 @@ a {
     padding: 16px 20px;
     color: #5B869F;
 }
-
 
 /* Disable ugly boxes around images in IE10 */
 a img {
@@ -493,12 +492,6 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
     padding-top: 16px;
 }
 
-.ef-customized-section-image {
-    background: url('../images/test/devices.jpg') center top no-repeat;
-    background-size: cover;
-    height: 400px;
-}
-
 .ef-date-section {
     /*background-color: white;*/
     /*background-image: url('../images/bg_ef.svg');*/
@@ -728,21 +721,23 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
     }
 
     .ef-home {
-        height: 350px;
+        height: 300px;
+        padding: 0;
+        margin: 0 auto;
     }
 
     .ef-slogan {
-        font-size: 70px;
-        margin: 0 16px;
-        /*padding-top: 24px;*/
-        color: white;
+        font-size: 40px;
+        line-height: 1.2;
+        color: #5B869F;
+        padding-top: 20%;
     }
 
     .ef-sub-slogan {
         font-size: 32px;
         margin: 0 16px;
         padding-top: 30px;
-        color: white;
+        color: #5B869F;
     }
 
     .ef-create-character {
@@ -765,5 +760,30 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
 
     .ef-footer .mdl-mega-footer--bottom-section {
         display: none;
+    }
+
+    /* cards */
+    .ef-card-container {
+        margin-left: 1%;
+        width: 98%;
+    }
+
+    .ef-card-container .mdl-card__title {
+        height: 200px;
+    }
+
+    .ef-card-container .mdl-card__supporting-text > div {
+        padding: 4px 0 4px 0;
+        font-size: 40px;
+    }
+
+    .ef-card-container .mdl-card__supporting-text > p {
+        padding: 4px 0 4px 0;
+        font-size: 20px;
+    }
+
+    .ef-footer .footer-person > span {
+        font-size: 40px;
+        padding-right: 30px;
     }
 }
