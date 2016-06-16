@@ -210,10 +210,8 @@ a img {
     height: 800px;
     width: auto;
     margin-top: -60px;
-    background-image: url('../images/location_background.jpg');
-    background-size: 100% 800px;
-    background-repeat: no-repeat;
-    background-position: left top;
+    background: url('../images/location_background.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 .ef-calendar > .mdl-card__media {
@@ -679,7 +677,6 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
 
 .ef-location-address {
     float: right;
-    margin: 10px;
 }
 
 /**** Mobile layout ****/
@@ -786,4 +783,9 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
         font-size: 40px;
         padding-right: 30px;
     }
+
+    .ef-location {
+        height: 400px;
+    }
+
 }

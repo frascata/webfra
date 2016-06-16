@@ -69,6 +69,22 @@
         var dialog = document.querySelector('dialog');
         var showModalButtons = document.querySelectorAll('.show-map');
 
+        function openMapsApp(map) {
+            var url;
+            if (map == 'church') {
+                url = 'https://www.google.it/maps/place/Chiesa+dei+Cappuccini/@43.3429625,11.9339794,17z/data=!3m1!4b1!4m5!3m4!1s0x132bf0f614bc13bf:0x3b7acbff351dafeb!8m2!3d43.3429625!4d11.9361627';
+            }
+            if (map == 'santamaria') {
+                url = 'https://www.google.it/maps/place/Santa+Maria+a+Pigli/@43.402647,11.8620583,17z/data=!3m1!4b1!4m5!3m4!1s0x132beddf907bd69b:0xd612fba95a0251c9!8m2!3d43.402647!4d11.864247';
+            }
+            if (map == 'hotel') {
+                url = 'https://www.google.it/maps/place/Hotel+Planet+Srl/@43.371017,11.8733213,17z/data=!3m1!4b1!4m5!3m4!1s0x132bee39fab11839:0xe90ae816a0237030!8m2!3d43.371017!4d11.87551';
+            }
+            if (url) {
+                window.location.href=url;
+            }
+        }
+
         if (!dialog.showModal) {
             dialogPolyfill.registerDialog(dialog);
         }
@@ -81,15 +97,14 @@
                     for (var i = 0; i < maps.length; i++) {
                         maps[i].style.display = 'none';
                     }
-                    var currentMap = document.querySelector('dialog.mdl-dialog .mdl-dialog__content iframe.' + map + '-map');
-                    if (currentMap) {
-                        currentMap.style.display = 'block';
-                    }
-{#                    console.log(IS_ANDROID);#}
-{#                    console.log(IS_IOS);#}
+
                     if (IS_ANDROID || IS_IOS) {
-                        window.open(currentMap.src);
+                        openMapsApp(map);
                     } else {
+                        var currentMap = document.querySelector('dialog.mdl-dialog .mdl-dialog__content iframe.' + map + '-map');
+                        if (currentMap) {
+                            currentMap.style.display = 'block';
+                        }
                         dialog.showModal();
                     }
                 });
