@@ -650,6 +650,18 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
     top: 6px;
 }
 
+.ef-sub-footer {
+    padding: 14px;
+    background-color: #f5f5f5;
+    text-align: center;
+    font-size: 20px;
+    border-top: 1px solid rgba(0,0,0,.06);
+}
+.ef-sub-footer a i {
+    top: 4px;
+    position: relative;
+}
+
 .ef-link-menu:hover {
     cursor: pointer;
 }
@@ -786,6 +798,10 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
 
     .ef-location {
         height: 400px;
+    }
+
+    .ef-sub-footer div {
+        margin-bottom: 2%;
     }
 
 }
