@@ -17,7 +17,7 @@
 
 {% block extra_head %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/honeymoon_style.css" %}">
+    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/honeymoon_style.min.css" %}">
     <style>
         .demo-layout-transparent {
             z-index: 9999;
@@ -43,10 +43,12 @@
 
     {% include "pages/honeymoon_content.html" %}
 
+    <div>
     {% include "includes/ef_footer.html" %}
+    </div>
 
 {% endblock %}
 
 {% block extra_footer_scripts %}
-    <script src="{% static "elisaefrancesco/js/dist/app.js" %}"></script>
+    <script src="{% static "elisaefrancesco/js/travel-app/app.min.js" %}"></script>
 {% endblock %}

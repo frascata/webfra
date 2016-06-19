@@ -397,6 +397,11 @@ a:focus {
     margin: 10px 0;
 }
 
+
+footer .section__text {
+    margin-top: -20px !important;
+}
+
 @media (max-width: 720px) {
     .header-title {
         font-size: 1.5em;

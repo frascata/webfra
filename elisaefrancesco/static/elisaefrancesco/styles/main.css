@@ -665,11 +665,11 @@ div.ef-location-section:nth-child(even) .ef-wedding-band-text {
     position: relative;
     height: 100%;
     width: 100%;
+    background:url(../images/loader.gif) center center no-repeat;
 }
 
 .ef-map-overlay {
     width: 100%;
-    /*min-height: 400px;*/
     height: 100%;
     position: absolute;
     top: 0;

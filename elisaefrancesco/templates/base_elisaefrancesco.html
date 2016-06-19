@@ -2,21 +2,26 @@
 {% load pages_tags mezzanine_tags i18n staticfiles %}
 
 {% block extra_head %}
+
     <!-- Web Application Manifest -->
     <link rel="manifest" href="{% static "elisaefrancesco/manifest.json" %}">
+    {% compress css %}
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="{% static "elisaefrancesco/styles/font-awesome.min.css" %}">
+        <link rel="stylesheet" href="{% static "elisaefrancesco/styles/material.min.css" %}">
+        <link rel="stylesheet" href="{% static "elisaefrancesco/styles/main.min.css" %}">
+        <link rel="stylesheet" href="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.min.css" %}">
 
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    {#<link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>#}
-    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/material.min.css" %}">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/styles/main.css" %}">
-    <link rel="stylesheet" href="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.css" %}">
+    {% endcompress %}
 
-    <script src="{% static "elisaefrancesco/js/material.min.js" %}"></script>
-    <script src="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.js" %}"></script>
+    {% compress js %}
+        <script src="{% static "elisaefrancesco/js/material.min.js" %}"></script>
+        <script src="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.min.js" %}"></script>
+
+    {% endcompress %}
 {% endblock %}
 
 {% block base-body %}
