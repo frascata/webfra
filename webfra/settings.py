@@ -114,10 +114,9 @@ USE_TZ = True
 LANGUAGE_CODE = "it"
 
 # Supported languages
-gettext = lambda s: s
 LANGUAGES = (
-    ('it', gettext('Italian')),
-    ('en', gettext('English')),
+    ('it', _('Italian')),
+    ('en', _('English')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -132,7 +131,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
@@ -242,8 +241,6 @@ if DJANGO_VERSION < (1, 9):
 ################
 
 INSTALLED_APPS = (
-    "vivaifrappi",
-    "elisaefrancesco",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -263,7 +260,9 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     # "mezzanine.accounts",
     # "mezzanine.mobile",
-    "webfra",
+    # "webfra",
+    "vivaifrappi",
+    "elisaefrancesco",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
