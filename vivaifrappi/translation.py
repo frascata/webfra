@@ -1,5 +1,5 @@
 from modeltranslation.translator import TranslationOptions
-from vivaifrappi.models import HomePage, OneSectionPage, Portfolio, ThreeSectionsPage, Project
+from .models import HomePage, OneSectionPage, Portfolio, ThreeSectionsPage, Project
 from modeltranslation.translator import translator
 
 
