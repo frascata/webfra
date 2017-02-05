@@ -5,15 +5,13 @@ try:
 except ImportError:  # Python 2
     from urlparse import urljoin
 
-from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import ImageField
 from django.utils.translation import ugettext_lazy as _
-from mezzanine.core.managers import SearchableManager
 from mezzanine.core.models import Displayable, MetaData, TimeStamped
 from mezzanine.galleries.models import BaseGallery, Gallery, GalleryImage
 from mezzanine.pages.models import Page, RichTextPage
-from mezzanine.core.fields import FileField, RichTextField
+from mezzanine.core.fields import FileField
 from mezzanine.core.models import RichText, Orderable, Slugged
 from mezzanine.utils.models import upload_to
 
@@ -130,7 +128,6 @@ class Project(Displayable):
     gallery = models.ForeignKey(to=Gallery, null=True, blank=True, default=None)
     page = models.ForeignKey(to=OneSectionPage, null=True, blank=True, default=None)
 
-    objects = SearchableManager()
     search_fields = ("name",)
 
     def __unicode__(self):
