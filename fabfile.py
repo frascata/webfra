@@ -635,9 +635,7 @@ def deploy():
             rsync_upload()
     with project():
         manage("collectstatic -v 0 --noinput")
-        # manage("syncdb --noinput")
-        manage("makemigrations")
-        manage("migrate")
+        manage("migrate --noinput")
     for name in get_templates():
         upload_template_and_reload(name)
     restart()
