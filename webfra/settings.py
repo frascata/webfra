@@ -201,7 +201,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(PROJECT_ROOT, "webfra", "templates"),
+            os.path.join(PROJECT_ROOT, "core", "templates"),
             os.path.join(PROJECT_ROOT, "vivaifrappi", "templates"),
             os.path.join(PROJECT_ROOT, "elisaefrancesco", "templates"),
         ],
