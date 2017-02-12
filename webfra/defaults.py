@@ -6,6 +6,7 @@ THEME_CHOICES = (
     ('', _("Default")),
     ('vivaifrappi', _("Vivai Frappi")),
     ('elisaefrancesco', _("Elisa Francesco")),
+    ('pool', _("Pool")),
 )
 
 register_setting(

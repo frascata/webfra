@@ -81,7 +81,6 @@ from django.utils.translation import ugettext_lazy as _
 #
 # BLOG_USE_FEATURED_IMAGE = True
 
-
 BLOG_SLUG = u'news'
 
 # If True, the django-modeltranslation will be added to the
@@ -202,17 +201,12 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(PROJECT_ROOT, "templates"),
+            os.path.join(PROJECT_ROOT, "webfra", "templates"),
             os.path.join(PROJECT_ROOT, "vivaifrappi", "templates"),
             os.path.join(PROJECT_ROOT, "elisaefrancesco", "templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
-            # "loaders": [
-            #     "mezzanine_utils.loaders.MezzanineLoader",
-            #     'django.template.loaders.filesystem.Loader',
-            #     'django.template.loaders.app_directories.Loader',
-            # ],
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
@@ -260,9 +254,10 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     # "mezzanine.accounts",
     # "mezzanine.mobile",
-    # "webfra",
+    "webfra",
     "vivaifrappi",
     "elisaefrancesco",
+    "pool",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -270,7 +265,6 @@ INSTALLED_APPS = (
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
-
     'django.contrib.sessions.middleware.SessionMiddleware',
     # Uncomment if using internationalisation or localisation
     # 'django.middleware.locale.LocaleMiddleware',
@@ -280,7 +274,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.RedirectFallbackMiddleware",
     "mezzanine.core.middleware.TemplateForDeviceMiddleware",

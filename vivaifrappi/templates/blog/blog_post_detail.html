@@ -1,4 +1,4 @@
-{% extends "blog/blog_post_list.html" %}
+{% extends "pages/page_v.html" %}
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n future disqus_tags %}
 
 {% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
@@ -20,6 +20,15 @@
     {{ block.super }}
     <li class="active">{{ blog_post.title }}</li>
 {% endblock %}
+
+{% block header-style %}
+    style="background-image:url('{{ STATIC_URL }}media/uploads/vivaifrappi/header_background/default.jpg');"
+{% endblock header-style %}
+
+{% block main-content-size %}8{% endblock %}
+{% block right-panel-size %}4{% endblock %}
+
+{% block left-panel-wrapper %}{% endblock %}
 
 {% block main %}
 

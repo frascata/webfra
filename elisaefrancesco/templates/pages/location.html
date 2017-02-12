@@ -1,21 +1,5 @@
-{% extends "base_elisaefrancesco.html" %}
+{% extends "pages/richtextpage_ef.html" %}
 {% load mezzanine_tags i18n blog_tags keyword_tags staticfiles pages_tags %}
-
-{% block meta_title %}{{ page.meta_title }}{% endblock %}
-
-{% block meta_keywords %}{% metablock %}
-    {% keywords_for page as keywords %}
-    {% for keyword in keywords %}
-        {% if not forloop.first %}, {% endif %}
-        {{ keyword }}
-    {% endfor %}
-{% endmetablock %}{% endblock %}
-
-{% block meta_description %}{% metablock %}
-    {{ page.description }}
-{% endmetablock %}{% endblock %}
-
-{% block extra_css %}{% endblock %}
 
 {% block extra_head %}
     {{ block.super }}
@@ -42,7 +26,7 @@
 {% endblock extra_head %}
 
 
-{% block content-body %}
+{% block main %}
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
         {% include "pages/menus/ef_navbar.html" %}
 

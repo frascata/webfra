@@ -1,11 +1,7 @@
 {% extends "base.html" %}
 {% load pages_tags mezzanine_tags i18n staticfiles %}
 
-{% block extra_head %}
-
-    <!-- Web Application Manifest -->
-    <link rel="manifest" href="{% static "elisaefrancesco/manifest.json" %}">
-
+{% block extra_css %}
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
@@ -15,14 +11,22 @@
     <link rel="stylesheet" href="{% static "elisaefrancesco/styles/main.min.css" %}">
     <link rel="stylesheet" href="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.min.css" %}">
 
+{% endblock extra_css %}
+
+{% block extra_js %}
     <script src="{% static "elisaefrancesco/js/material.min.js" %}"></script>
     <script src="{% static "elisaefrancesco/js/dialog-polyfill/dialog-polyfill.min.js" %}"></script>
+{% endblock extra_js %}
+
+{% block extra_head %}
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="{% static "elisaefrancesco/manifest.json" %}">
 {% endblock %}
 
 {% block base-body %}
     {% block content-body %}
 
-        {% block left-panel-wrapper %}å
+        {% block left-panel-wrapper %}
         {% endblock %}
 
         {% block main-content %}
@@ -35,6 +39,8 @@
 
     {% endblock %}
 
-    {% block extra_footer_scripts %}{% endblock %}
 {% endblock base-body %}
 
+{% block footer_js %}
+    {{ block.super }}
+{% endblock %}

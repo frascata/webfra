@@ -1,8 +1,32 @@
 {% extends "base.html" %}
 {% load pages_tags mezzanine_tags i18n staticfiles %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "vivaifrappi/css/bootstrap-theme.css" %}">
+    <link href="{% static "vivaifrappi/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "vivaifrappi/css/style.min.css" %}" rel="stylesheet">
+    <link href="{% static "vivaifrappi/type/fontello.css" %}" rel="stylesheet">
+    <link href="{% static "vivaifrappi/css/frappi.css" %}" rel="stylesheet">
+    <link href="{% static "vivaifrappi/css/animate.css" %}" rel="stylesheet">
+    <style>
+    footer {margin-top: 0;}
+    </style>
+{% endblock extra_css %}
+
+{% block extra_js %}
+    <script src="{% static "vivaifrappi/js/jquery-1.12.0.min.js" %}"></script>
+    <script src="{% static "vivaifrappi/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "vivaifrappi/js/cookies-eu-banner.js" %}"></script>
+{% endblock extra_js %}
+
+{% block extra_head %}
+    <link rel="shortcut icon" href="{% static "vivaifrappi/img/favicon.ico" %}">
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:100italic,100,300italic,300,400italic,400,500italic,500,700italic,700,900italic,900"
+          rel="stylesheet" type="text/css">
+{% endblock %}
+
 {% block base-body %}
-    <body id="{% block body_id %}body{% endblock %}">
     <div id="cookies-eu-banner" style="display: none;">
         <div class="container" style="text-align: center;">
             {% trans "Continuando a navigare, accetti l'uso dei cookie per migliorare e personalizzare la tua esperienza." %}
@@ -112,9 +136,39 @@
     {% endblock %}
 
     <footer>
-        {% page_menu "pages/menus/footer.html" %}
+        {% page_menu "pages/menus/vivaifrappi_footer.html" %}
     </footer>
 
-    {% include "includes/footer_scripts.html" %}
-
 {% endblock base-body %}
+
+{% block footer_js %}
+    {{ block.super }}
+
+    <script>
+        /*-----------------------------------------------------------------------------------
+         *	IMAGE HOVER
+         *-----------------------------------------------------------------------------------*/
+        $(document).ready(function () {
+          $('.overlay').mouseenter(function (e) {
+            $(this).children('a').children('span').fadeIn(300);
+          }).mouseleave(function (e) {
+            $(this).children('a').children('span').fadeOut(200);
+          });
+        });
+
+        new CookiesEuBanner(function () {
+          {% if settings.GOOGLE_ANALYTICS_ID and not request.user.is_staff %}
+            var _gaq = _gaq || [['_trackPageview']];
+            _gaq.unshift(['_setAccount', '{{ settings.GOOGLE_ANALYTICS_ID }}']);
+            (function (d, t) {
+              var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+              g.async = true;
+              g.src = '//www.google-analytics.com/ga.js';
+              s.parentNode.insertBefore(g, s);
+            })(document, 'script');
+
+          {% endif %}
+        });
+    </script>
+{% endblock %}
