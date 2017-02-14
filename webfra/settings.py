@@ -204,6 +204,7 @@ TEMPLATES = [
             os.path.join(PROJECT_ROOT, "core", "templates"),
             os.path.join(PROJECT_ROOT, "vivaifrappi", "templates"),
             os.path.join(PROJECT_ROOT, "elisaefrancesco", "templates"),
+            os.path.join(PROJECT_ROOT, "pool", "templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {

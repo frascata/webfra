@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="{% static "pool/manifest.json" %}">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+{% endblock %}
+
+{% block base-body %}
+    {% block content-body %}
+        {% block left-panel-wrapper %}
+        {% endblock %}
+
+        {% block main-content %}
+            {% block main %}{% endblock %}
+        {% endblock %}
+
+        {% block right-panel-wrapper %}
+        {% endblock %}
+    {% endblock %}
+{% endblock base-body %}
+
+{% block footer_js %}
+    {{ block.super }}
+{% endblock %}
+

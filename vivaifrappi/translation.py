@@ -12,7 +12,7 @@ class TranslatedOneSectionPage(TranslationOptions):
 
 
 class TranslatedThreeSectionsPage(TranslationOptions):
-    fields = ('content','second_content', 'third_content',)
+    fields = ('content', 'second_content', 'third_content',)
 
 
 class TranslatedPortfolio(TranslationOptions):
@@ -28,9 +28,3 @@ translator.register(OneSectionPage, TranslatedOneSectionPage)
 translator.register(ThreeSectionsPage, TranslatedThreeSectionsPage)
 translator.register(Portfolio, TranslatedPortfolio)
 translator.register(Project, TranslatedProject)
-
-
-
-# translator.register(BlogPost, TranslatedBlogPost)
-# translator.register(BlogCategory, TranslatedBlogCategory)
-
