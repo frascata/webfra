@@ -1,0 +1,1 @@
+web: gunicorn webfra.wsgi --log-file -
